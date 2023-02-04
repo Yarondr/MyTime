@@ -52,8 +52,8 @@
         android:text="Sunday"
         android:textColor="@color/on_background"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintStart_toStartOf="@+id/textview_viewevent_name"
+        app:layout_constraintTop_toBottomOf="@+id/textview_viewevent_name" />
 
     <TextView
         android:id="@+id/textview_viewevent_start"
@@ -95,9 +95,9 @@
         android:id="@+id/imageview_viewevent_editname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_viewevent_name"
         app:layout_constraintStart_toStartOf="@+id/imageview_viewevent_back"
-        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textview_viewevent_name"
         app:srcCompat="@drawable/title_icon"
         app:tint="@color/secondary" />
 
@@ -115,9 +115,9 @@
         android:id="@+id/imageview_viewevent_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView8"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_viewevent_location"
         app:layout_constraintStart_toStartOf="@+id/imageview_viewevent_day"
-        app:layout_constraintTop_toTopOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="@+id/textview_viewevent_location"
         app:srcCompat="@drawable/location_icon"
         app:tint="@color/secondary" />
 
@@ -135,9 +135,9 @@
         android:id="@+id/imageview_viewevent_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_viewevent_notes"
         app:layout_constraintStart_toStartOf="@+id/imageview_viewevent_notification"
-        app:layout_constraintTop_toTopOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/textview_viewevent_notes"
         app:srcCompat="@drawable/edit_note_icon"
         app:tint="@color/secondary" />
 
@@ -145,14 +145,14 @@
         android:id="@+id/imageview_viewevent_onetime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_viewevent_onetime"
         app:layout_constraintStart_toStartOf="@+id/imageview_viewevent_notification"
-        app:layout_constraintTop_toTopOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textview_viewevent_onetime"
         app:srcCompat="@drawable/deny_icon"
         app:tint="@color/secondary" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textview_viewevent_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -165,7 +165,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view_viewevent_header_line" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textview_viewevent_onetime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -173,11 +173,11 @@
         android:text="One Time Event"
         android:textColor="@color/on_background"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintStart_toStartOf="@+id/textview_viewevent_notes"
+        app:layout_constraintTop_toBottomOf="@+id/textview_viewevent_notes" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textview_viewevent_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -189,7 +189,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textview_viewevent_notif" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textview_viewevent_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -197,7 +197,7 @@
         android:text="No Notes"
         android:textColor="@color/on_background"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintStart_toStartOf="@+id/textview_viewevent_location"
+        app:layout_constraintTop_toBottomOf="@+id/textview_viewevent_location" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
