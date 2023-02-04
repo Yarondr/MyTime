@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:cardBackgroundColor="@color/background_secondary"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/day_picker_title"
+                android:textColor="@color/primary_variant"
+                android:textSize="40sp" />
+
+            <RadioGroup
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <RadioButton
+                    android:id="@+id/radiobutton_notifpicker_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layoutDirection="rtl"
+                    android:text="@string/sunday"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/secondary"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radiobutton_notifpicker_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layoutDirection="rtl"
+                    android:text="@string/monday"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/secondary"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radiobutton_notifpicker_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layoutDirection="rtl"
+                    android:text="@string/thesday"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/secondary"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radiobutton_notifpicker_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layoutDirection="rtl"
+                    android:text="@string/wednesday"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/secondary"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radiobutton_notifpicker_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layoutDirection="rtl"
+                    android:text="@string/thursday"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/secondary"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radiobutton_notifpicker_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layoutDirection="rtl"
+                    android:text="@string/friday"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/secondary"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radiobutton_daypicker_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:layoutDirection="rtl"
+                    android:text="@string/saturday"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/secondary"
+                    android:textSize="18sp" />
+            </RadioGroup>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
