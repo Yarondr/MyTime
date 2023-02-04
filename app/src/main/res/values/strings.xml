@@ -11,7 +11,7 @@
     <string name="addevent_no_end_time">Select End Time</string>
     <string name="addevent_no_location">Location</string>
     <string name="addevent_no_notification">Set Notification</string>
-    <string name="addevent_on_time_event">One Time Event</string>
+    <string name="on_time_event">One Time Event</string>
     <string name="addevent_no_notes">Add Notes</string>
     <string name="addevent_save">Save</string>
     <string name="day_picker_title">Select a day:</string>
@@ -29,4 +29,5 @@
     <string name="notification_1hour">1 hour before</string>
     <string name="notification_3hours">3 hours before</string>
     <string name="notification_1day">1 day before</string>
+    <string name="viewevent_title">View Event</string>
 </resources>
