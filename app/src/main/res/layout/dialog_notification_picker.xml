@@ -34,11 +34,11 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/quicksand_bold"
                 android:text="@string/notification_picker_title"
-                android:textColor="@color/primary_variant"
-                android:textSize="36sp" />
+                android:textColor="@color/on_background_secondary"
+                android:textSize="30sp" />
 
             <RadioGroup
-                android:layout_width="300dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp">
 

@@ -74,6 +74,8 @@ class AddEventActivity : AppCompatActivity() {
         dialog.setContentView(R.layout.dialog_notification_picker)
 
         val window = dialog.window
+        val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
+        window?.setLayout(width, 1000)
         window?.setBackgroundDrawableResource(android.R.color.transparent)
 
         dialog.show()
