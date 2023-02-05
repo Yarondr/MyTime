@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddEventActivity">
+    tools:context=".activities.AddEventActivity">
 
     <ImageView
-        android:id="@+id/imageview_addevent_sidebar"
+        android:id="@+id/imageview_addevent_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textview_addevent_title"
-        app:srcCompat="@drawable/menu_icon"
+        app:srcCompat="@drawable/arrow_back_icon"
         app:tint="@color/secondary" />
 
     <TextView
@@ -135,7 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/edittext_addevent_name"
-        app:layout_constraintStart_toStartOf="@+id/imageview_addevent_sidebar"
+        app:layout_constraintStart_toStartOf="@+id/imageview_addevent_back"
         app:layout_constraintTop_toTopOf="@+id/edittext_addevent_name"
         app:srcCompat="@drawable/edit_icon"
         app:tint="@color/secondary" />
@@ -191,7 +191,7 @@
         app:tint="@color/secondary" />
 
     <ImageButton
-        android:id="@+id/imageview_addevent_save"
+        android:id="@+id/imageButton_addevent_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

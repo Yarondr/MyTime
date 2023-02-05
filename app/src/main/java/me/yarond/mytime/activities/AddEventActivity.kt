@@ -1,15 +1,20 @@
-package me.yarond.mytime
+package me.yarond.mytime.activities
 
 import android.app.Dialog
 import android.app.TimePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
+import me.yarond.mytime.R
 
 class AddEventActivity : AppCompatActivity() {
     private lateinit var startTimeTextView: TextView
     private lateinit var endTimeTextView: TextView
+    private lateinit var backImageView: ImageView
+    private lateinit var saveImageButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +26,8 @@ class AddEventActivity : AppCompatActivity() {
     private fun setViews() {
         startTimeTextView = findViewById(R.id.textview_addevent_start)
         endTimeTextView = findViewById(R.id.textview_addevent_end)
+        backImageView = findViewById(R.id.imageview_addevent_back)
+        saveImageButton = findViewById(R.id.imageButton_addevent_save)
     }
 
     private fun setListeners() {
@@ -34,13 +41,20 @@ class AddEventActivity : AppCompatActivity() {
             showNotificationDialog()
         }
 
-
         startTimeTextView.setOnClickListener {
             timePicker(HourPickerType.START)
         }
 
         endTimeTextView.setOnClickListener {
             timePicker(HourPickerType.END)
+        }
+
+        backImageView.setOnClickListener {
+            finish()
+        }
+
+        saveImageButton.setOnClickListener {
+            finish()
         }
 
     }
