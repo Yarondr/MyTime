@@ -44,7 +44,7 @@ class OverviewActivity : AppCompatActivity() {
 
     private fun setListeners() {
         addImageButton.setOnClickListener {
-            val intent = Intent(this, AddEventActivity::class.java)
+            val intent = Intent(this, TimeTableActivity::class.java)
             startActivity(intent)
         }
     }
