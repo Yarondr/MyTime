@@ -22,13 +22,13 @@
     <string name="thursday">Thursday</string>
     <string name="friday">Friday</string>
     <string name="saturday">Saturday</string>
-    <string name="sunday_short">S</string>
-    <string name="monday_short">M</string>
-    <string name="tuesday_short">T</string>
-    <string name="wednesday_short">W</string>
-    <string name="thursday_short">T</string>
-    <string name="friday_short">F</string>
-    <string name="saturday_short">S</string>
+    <string name="sunday_short">SUN</string>
+    <string name="monday_short">MON</string>
+    <string name="tuesday_short">TUE</string>
+    <string name="wednesday_short">WED</string>
+    <string name="thursday_short">THU</string>
+    <string name="friday_short">FRI</string>
+    <string name="saturday_short">SAT</string>
     <string name="notification_picker_title">Select a notification:</string>
     <string name="notification_none">None</string>
     <string name="notification_10min">10 minutes before</string>
@@ -61,4 +61,14 @@
     <string name="hour_22">22</string>
     <string name="hour_21">21</string>
     <string name="hour_23">23</string>
+    <string name="today_schedule">Today\'s Schedule</string>
+    <string name="title_activity_weekly_schedule">WeeklySchedule</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

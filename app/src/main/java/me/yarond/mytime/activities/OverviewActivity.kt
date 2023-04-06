@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import me.yarond.mytime.R
 import me.yarond.mytime.adapters.PendingEvent
 import me.yarond.mytime.adapters.PendingEventAdapter
+import me.yarond.mytime.fragments.DayScheduleFragment
 
 class OverviewActivity : AppCompatActivity() {
 
@@ -44,7 +45,7 @@ class OverviewActivity : AppCompatActivity() {
 
     private fun setListeners() {
         addImageButton.setOnClickListener {
-            val intent = Intent(this, TimeTableActivity::class.java)
+            val intent = Intent(this, WeeklySchedule::class.java)
             startActivity(intent)
         }
     }
