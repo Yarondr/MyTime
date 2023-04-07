@@ -17,8 +17,8 @@
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textview_addevent_title"
-        app:srcCompat="@drawable/arrow_back_icon"
-        app:tint="@color/secondary" />
+        android:src="@drawable/arrow_back_icon"
+        android:tint="@color/secondary" />
 
     <TextView
         android:id="@+id/textview_addevent_title"

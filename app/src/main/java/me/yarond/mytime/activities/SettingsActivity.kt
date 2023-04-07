@@ -1,46 +1,45 @@
 package me.yarond.mytime.activities
 
 import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
 import me.yarond.mytime.R
-import me.yarond.mytime.adapters.PendingEvent
-import me.yarond.mytime.adapters.PendingEventAdapter
 
-class OverviewActivity : AppCompatActivity() {
+class SettingsActivity : AppCompatActivity() {
 
-    private lateinit var todayEventsLayoutManager: RecyclerView.LayoutManager
-    private lateinit var todayEventsAdapter: RecyclerView.Adapter<PendingEventAdapter.ViewHolder>
-    private lateinit var todayEventsRecyclerView: RecyclerView
-    private lateinit var addImageButton: ImageButton
+    private lateinit var themeSwitch: SwitchCompat
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var toggleSidebar: ActionBarDrawerToggle
     private lateinit var navigationView: NavigationView
     private lateinit var sidebarButton: ImageButton
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_overview)
+        setContentView(R.layout.activity_settings)
         setViews()
         setSideBar()
-        setAdapters()
         setListeners()
     }
 
     private fun setViews() {
-        todayEventsRecyclerView = findViewById<RecyclerView>(R.id.recyclerview_overview_today)
-        addImageButton = findViewById<ImageButton>(R.id.imagebutton_overview_add)
-        drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout_overview)
-        navigationView = findViewById<NavigationView>(R.id.navigationview_overview)
-        sidebarButton = findViewById<ImageButton>(R.id.imagebutton_overview_sidebar)
+        themeSwitch = findViewById<SwitchCompat>(R.id.switch_settings_theme)
+        drawerLayout = findViewById<DrawerLayout>(R.id.drawerlayout_settings)
+        navigationView = findViewById<NavigationView>(R.id.navigationview_settings)
+        sidebarButton = findViewById<ImageButton>(R.id.imagebutton_settings_sidebar)
+        toggleSidebar = ActionBarDrawerToggle(this, drawerLayout, R.string.sunday, R.string.friday)
+
+        if (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES) {
+            themeSwitch.isChecked = true
+        }
     }
 
     private fun setSideBar() {
@@ -75,7 +74,9 @@ class OverviewActivity : AppCompatActivity() {
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_overview -> {
-                    drawerLayout.closeDrawer(navigationView)
+                    val intent = Intent(this, OverviewActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
                 R.id.menu_weekly_schedule -> {
                     val intent = Intent(this, WeeklyScheduleActivity::class.java)
@@ -83,9 +84,7 @@ class OverviewActivity : AppCompatActivity() {
                     finish()
                 }
                 R.id.menu_settings -> {
-                    val intent = Intent(this, SettingsActivity::class.java)
-                    startActivity(intent)
-                    finish()
+                    drawerLayout.closeDrawer(navigationView)
                 }
             }
             true
@@ -98,21 +97,13 @@ class OverviewActivity : AppCompatActivity() {
 
     }
 
-    private fun setAdapters() {
-        todayEventsLayoutManager = LinearLayoutManager(this)
-        todayEventsRecyclerView.layoutManager = todayEventsLayoutManager
-
-        val event1 = PendingEvent("Event 1", "10:00", "1.")
-        val event2 = PendingEvent("Event 2", "11:00", "2.")
-
-        todayEventsAdapter = PendingEventAdapter(arrayListOf(event1, event2))
-        todayEventsRecyclerView.adapter = todayEventsAdapter
-    }
-
     private fun setListeners() {
-        addImageButton.setOnClickListener {
-            val intent = Intent(this, AddEventActivity::class.java)
-            startActivity(intent)
+        themeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
         }
     }
 }

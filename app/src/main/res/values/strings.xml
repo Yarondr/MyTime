@@ -71,4 +71,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="nav_overview">Overview</string>
+    <string name="nav_weekly_schedule">Weekly Schedule</string>
+    <string name="addevent">Add Event</string>
+    <string name="weekly_schedule_title">Weekly Schedule</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_darktheme">Dark Theme</string>
+    <string name="nav_settings">Settings</string>
 </resources>
