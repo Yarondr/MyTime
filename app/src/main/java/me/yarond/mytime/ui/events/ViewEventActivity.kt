@@ -1,4 +1,4 @@
-package me.yarond.mytime.activities
+package me.yarond.mytime.ui.events
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

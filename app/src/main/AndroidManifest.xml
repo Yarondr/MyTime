@@ -13,30 +13,27 @@
         android:theme="@style/Theme.MyTime"
         tools:targetApi="31">
         <activity
-            android:name=".activities.SettingsActivity"
+            android:name=".ui.settings.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.WeeklyScheduleActivity"
+            android:name=".ui.schedule.WeeklyScheduleActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.TimeTableActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ViewEventActivity"
+            android:name=".ui.events.ViewEventActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.AddEventActivity"
+            android:name=".ui.events.AddEventActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.OverviewActivity"
+            android:name=".ui.overview.OverviewActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

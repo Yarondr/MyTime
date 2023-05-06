@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.OverviewActivity">
+    tools:context=".ui.overview.OverviewActivity">
 
     <TextView
         android:id="@+id/textview_overview_title"
@@ -72,7 +72,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <Space
+                    <android.widget.Space
                         android:layout_width="16dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0" />
@@ -97,13 +97,13 @@
                         android:textColor="@color/on_background_hidden"
                         android:textSize="12sp" />
 
-                    <Space
+                    <android.widget.Space
                         android:layout_width="16dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0" />
                 </LinearLayout>
 
-                <Space
+                <android.widget.Space
                     android:layout_width="match_parent"
                     android:layout_height="25dp" />
 
@@ -137,7 +137,7 @@
                                 app:srcCompat="@drawable/book_icon"
                                 app:tint="@color/secondary" />
 
-                            <Space
+                            <android.widget.Space
                                 android:layout_width="10dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0" />
@@ -154,7 +154,7 @@
                                 android:textSize="18sp" />
                         </LinearLayout>
 
-                        <Space
+                        <android.widget.Space
                             android:layout_width="wrap_content"
                             android:layout_height="20dp"
                             android:layout_weight="1" />
@@ -164,7 +164,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
 
-                        <Space
+                        <android.widget.Space
                             android:layout_width="match_parent"
                             android:layout_height="20dp" />
 

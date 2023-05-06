@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ViewEventActivity">
+    tools:context=".ui.events.ViewEventActivity">
 
     <ImageView
         android:id="@+id/imageview_viewevent_back"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textview_viewevent_title"
         android:src="@drawable/arrow_back_icon"
-        android:tint="@color/secondary" />
+        app:tint="@color/secondary" />
 
     <TextView
         android:id="@+id/textview_viewevent_title"

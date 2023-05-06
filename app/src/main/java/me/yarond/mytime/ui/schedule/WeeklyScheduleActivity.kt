@@ -1,20 +1,20 @@
-package me.yarond.mytime.activities
+package me.yarond.mytime.ui.schedule
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import me.yarond.mytime.R
-import me.yarond.mytime.adapters.DaySchedulePagerAdapter
-import me.yarond.mytime.adapters.PendingEvent
-import me.yarond.mytime.fragments.DayScheduleFragment
+import me.yarond.mytime.ui.settings.SettingsActivity
+import me.yarond.mytime.model.PendingEvent
+import me.yarond.mytime.ui.events.AddEventActivity
+import me.yarond.mytime.ui.overview.OverviewActivity
 
 class WeeklyScheduleActivity : FragmentActivity() {
 
@@ -53,31 +53,38 @@ class WeeklyScheduleActivity : FragmentActivity() {
 
     private fun setAdapters() {
         val adapter = DaySchedulePagerAdapter(this)
-        adapter.addFragment(DayScheduleFragment(arrayListOf(
+        adapter.addFragment(
+            DayScheduleFragment(arrayListOf(
             PendingEvent("Event 1", "10:00", "1"),
             PendingEvent("Event 2", "11:00", "2")
         ), "Sunday"), R.string.sunday_short.toString())
-        adapter.addFragment(DayScheduleFragment(arrayListOf(
+        adapter.addFragment(
+            DayScheduleFragment(arrayListOf(
             PendingEvent("Event 3", "10:00", "1"),
             PendingEvent("Event 4", "11:00", "2")
         ), "Monday"), R.string.monday_short.toString())
-        adapter.addFragment(DayScheduleFragment(arrayListOf(
+        adapter.addFragment(
+            DayScheduleFragment(arrayListOf(
             PendingEvent("Event 5", "10:00", "1"),
             PendingEvent("Event 6", "11:00", "2")
         ), "Tuesday"), R.string.tuesday_short.toString())
-        adapter.addFragment(DayScheduleFragment(arrayListOf(
+        adapter.addFragment(
+            DayScheduleFragment(arrayListOf(
             PendingEvent("Event 7", "10:00", "1"),
             PendingEvent("Event 8", "11:00", "2")
         ), "Wednesday"), R.string.wednesday_short.toString())
-        adapter.addFragment(DayScheduleFragment(arrayListOf(
+        adapter.addFragment(
+            DayScheduleFragment(arrayListOf(
             PendingEvent("Event 9", "10:00", "1"),
             PendingEvent("Event 10", "11:00", "2")
         ), "Thursday"), R.string.thursday_short.toString())
-        adapter.addFragment(DayScheduleFragment(arrayListOf(
+        adapter.addFragment(
+            DayScheduleFragment(arrayListOf(
             PendingEvent("Event 11", "10:00", "1"),
             PendingEvent("Event 12", "11:00", "2")
         ), "Friday"), R.string.friday_short.toString())
-        adapter.addFragment(DayScheduleFragment(arrayListOf(
+        adapter.addFragment(
+            DayScheduleFragment(arrayListOf(
             PendingEvent("Event 13", "10:00", "1"),
             PendingEvent("Event 14", "11:00", "2")
         ), "Saturday"), R.string.saturday_short.toString())

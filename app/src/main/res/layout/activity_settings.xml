@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SettingsActivity"
+    tools:context=".ui.settings.SettingsActivity"
     tools:ignore="UseAppTint">
 
     <TextView
@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textview_settings_title"
         android:src="@drawable/menu_icon"
-        android:tint="@color/secondary" />
+        app:tint="@color/secondary" />
 
     <View
         android:id="@+id/view_weeklyschedule_header_line"

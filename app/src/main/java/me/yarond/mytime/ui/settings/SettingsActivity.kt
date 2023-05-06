@@ -1,4 +1,4 @@
-package me.yarond.mytime.activities
+package me.yarond.mytime.ui.settings
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -12,6 +12,8 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import me.yarond.mytime.R
+import me.yarond.mytime.ui.overview.OverviewActivity
+import me.yarond.mytime.ui.schedule.WeeklyScheduleActivity
 
 class SettingsActivity : AppCompatActivity() {
 

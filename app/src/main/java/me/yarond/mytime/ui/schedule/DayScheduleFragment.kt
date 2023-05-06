@@ -1,20 +1,16 @@
-package me.yarond.mytime.fragments
+package me.yarond.mytime.ui.schedule
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import me.yarond.mytime.R
-import me.yarond.mytime.adapters.PendingEvent
-import me.yarond.mytime.adapters.PendingEventAdapter
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val DAY = "SUNDAY"
+import me.yarond.mytime.model.PendingEvent
+import me.yarond.mytime.ui.overview.PendingEventAdapter
 
 /**
  * A simple [Fragment] subclass.

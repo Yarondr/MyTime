@@ -1,11 +1,8 @@
-package me.yarond.mytime.adapters
+package me.yarond.mytime.ui.schedule
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import me.yarond.mytime.fragments.DayScheduleFragment
 
 class DaySchedulePagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 
