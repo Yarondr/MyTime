@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.OverviewActivity">
+    tools:context=".ui.overview.OverviewActivity">
 
     <TextView
         android:id="@+id/textview_overview_title"
@@ -19,12 +19,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageview_overview_sidebar"
+    <ImageButton
+        android:id="@+id/imagebutton_overview_sidebar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/overview_title"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="@+id/textview_overview_title"
         app:layout_constraintEnd_toStartOf="@+id/textview_overview_title"
         app:layout_constraintHorizontal_bias="0.3"
@@ -43,131 +44,157 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout_overview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_overview_header_line">
+        android:layout_marginTop="86dp">
 
-        <LinearLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="16dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0" />
-
-            <TextView
-                android:id="@+id/textview_overview_today"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/quicksand_regular"
-                android:text="@string/overview_today"
-                android:textColor="@color/on_background"
-                android:textSize="28sp" />
-
-            <TextView
-                android:id="@+id/textview_overview_today_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="04/02/2023"
-                android:textColor="@color/on_background_hidden"
-                android:textSize="12sp" />
-
-            <Space
-                android:layout_width="16dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0" />
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="25dp" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardview_overview_todaycard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:cardBackgroundColor="@color/background_secondary"
-            app:cardCornerRadius="10dp">
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:id="@+id/linearlayout_overrview_todaycard"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="32dp">
 
                 <LinearLayout
-                    android:id="@+id/linearlayout_overview_todaycardtitle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/book_icon"
-                        app:tint="@color/secondary" />
-
-                    <Space
-                        android:layout_width="10dp"
+                    <android.widget.Space
+                        android:layout_width="16dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/textview_overview_today"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/quicksand_semibold"
-                        android:gravity="center_vertical"
-                        android:text="@string/pending_events"
-                        android:textColor="@color/secondary"
-                        android:textSize="18sp" />
+                        android:fontFamily="@font/quicksand_regular"
+                        android:text="@string/overview_today"
+                        android:textColor="@color/on_background"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:id="@+id/textview_overview_today_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="04/02/2023"
+                        android:textColor="@color/on_background_hidden"
+                        android:textSize="12sp" />
+
+                    <android.widget.Space
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0" />
                 </LinearLayout>
 
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_weight="1" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerview_overview_today"
+                <android.widget.Space
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="25dp" />
 
-                <Space
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardview_overview_todaycard"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:cardBackgroundColor="@color/background_secondary"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/linearlayout_overrview_todaycard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/linearlayout_overview_todaycardtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0"
+                                app:srcCompat="@drawable/book_icon"
+                                app:tint="@color/secondary" />
+
+                            <android.widget.Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0" />
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:gravity="center_vertical"
+                                android:text="@string/pending_events"
+                                android:textColor="@color/secondary"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <android.widget.Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:layout_weight="1" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerview_overview_today"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <android.widget.Space
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/imagebutton_overview_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/add_circle_icon"
+                app:tint="@color/primary"
+                android:contentDescription="@string/addevent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageButton
-        android:id="@+id/imagebutton_overview_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/add_circle_icon"
-        app:tint="@color/primary" />
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigationview_overview"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:menu="@menu/nav_menu" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

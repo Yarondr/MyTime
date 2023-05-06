@@ -22,7 +22,7 @@
             android:textAlignment="textEnd"
             android:textColor="@color/on_background" />
 
-        <Space
+        <android.widget.Space
             android:layout_width="match_parent"
             android:layout_height="4dp" />
 

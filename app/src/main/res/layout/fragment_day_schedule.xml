@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.schedule.DayScheduleFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_dayschedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/background_secondary"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:id="@+id/linearlayout_dayschedule"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:id="@+id/linearlayout_dayschedule_cardtitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    app:srcCompat="@drawable/book_icon"
+                    app:tint="@color/secondary" />
+
+                <android.widget.Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0" />
+
+                <TextView
+                    android:id="@+id/textview_dayschedule_daytitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/quicksand_semibold"
+                    android:gravity="center_vertical"
+                    android:text="@string/today_schedule"
+                    android:textColor="@color/secondary"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <android.widget.Space
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="1" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_dayschedule"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <android.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.AddEventActivity">
+    tools:context=".ui.events.AddEventActivity">
 
     <ImageView
         android:id="@+id/imageview_addevent_back"
@@ -17,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textview_addevent_title"
-        app:srcCompat="@drawable/arrow_back_icon"
+        android:src="@drawable/arrow_back_icon"
         app:tint="@color/secondary" />
 
     <TextView

@@ -1,4 +1,4 @@
-package me.yarond.mytime.activities
+package me.yarond.mytime.ui.events
 
 import android.app.Dialog
 import android.app.TimePickerDialog
