@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.events.ViewEventActivity">
+    tools:context=".ui.events.ViewEventActivity"
+    tools:ignore="UseAppTint">
 
     <ImageView
         android:id="@+id/imageview_viewevent_back"
@@ -18,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textview_viewevent_title"
         android:src="@drawable/arrow_back_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <TextView
         android:id="@+id/textview_viewevent_title"
@@ -99,7 +100,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageview_viewevent_back"
         app:layout_constraintTop_toTopOf="@+id/textview_viewevent_name"
         app:srcCompat="@drawable/title_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <ImageView
         android:id="@+id/imageview_viewevent_day"
@@ -109,7 +110,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageview_viewevent_editname"
         app:layout_constraintTop_toTopOf="@+id/textview_viewevent_day"
         app:srcCompat="@drawable/schedule_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <ImageView
         android:id="@+id/imageview_viewevent_location"
@@ -119,7 +120,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageview_viewevent_day"
         app:layout_constraintTop_toTopOf="@+id/textview_viewevent_location"
         app:srcCompat="@drawable/location_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <ImageView
         android:id="@+id/imageview_viewevent_notification"
@@ -129,7 +130,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageview_viewevent_location"
         app:layout_constraintTop_toTopOf="@+id/textview_viewevent_notif"
         app:srcCompat="@drawable/notification_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <ImageView
         android:id="@+id/imageview_viewevent_notes"
@@ -139,7 +140,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageview_viewevent_notification"
         app:layout_constraintTop_toTopOf="@+id/textview_viewevent_notes"
         app:srcCompat="@drawable/edit_note_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <ImageView
         android:id="@+id/imageview_viewevent_onetime"
@@ -149,7 +150,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageview_viewevent_notification"
         app:layout_constraintTop_toTopOf="@+id/textview_viewevent_onetime"
         app:srcCompat="@drawable/deny_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <TextView
         android:id="@+id/textview_viewevent_name"

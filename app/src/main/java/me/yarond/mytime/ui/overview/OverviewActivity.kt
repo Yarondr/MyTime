@@ -15,21 +15,21 @@ import me.yarond.mytime.ui.events.AddEventActivity
 import me.yarond.mytime.ui.settings.SettingsActivity
 import me.yarond.mytime.ui.schedule.WeeklyScheduleActivity
 import me.yarond.mytime.model.PendingEvent
+import me.yarond.mytime.ui.activityTypes.SidebarActivity
 
-class OverviewActivity : AppCompatActivity() {
+class OverviewActivity : SidebarActivity() {
 
     private lateinit var todayEventsLayoutManager: RecyclerView.LayoutManager
     private lateinit var todayEventsAdapter: RecyclerView.Adapter<PendingEventAdapter.ViewHolder>
     private lateinit var todayEventsRecyclerView: RecyclerView
     private lateinit var addImageButton: ImageButton
-    private lateinit var drawerLayout: DrawerLayout
     private lateinit var toggleSidebar: ActionBarDrawerToggle
-    private lateinit var navigationView: NavigationView
-    private lateinit var sidebarButton: ImageButton
+    private lateinit var presenter: OverviewPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_overview)
+        presenter = OverviewPresenter(this)
         setViews()
         setSideBar()
         setAdapters()
@@ -37,11 +37,11 @@ class OverviewActivity : AppCompatActivity() {
     }
 
     private fun setViews() {
-        todayEventsRecyclerView = findViewById<RecyclerView>(R.id.recyclerview_overview_today)
-        addImageButton = findViewById<ImageButton>(R.id.imagebutton_overview_add)
-        drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout_overview)
-        navigationView = findViewById<NavigationView>(R.id.navigationview_overview)
-        sidebarButton = findViewById<ImageButton>(R.id.imagebutton_overview_sidebar)
+        todayEventsRecyclerView = findViewById(R.id.recyclerview_overview_today)
+        addImageButton = findViewById(R.id.imagebutton_overview_add)
+        drawerLayout = findViewById(R.id.drawer_layout_overview)
+        navigationView = findViewById(R.id.navigationview_overview)
+        sidebarButton = findViewById(R.id.imagebutton_overview_sidebar)
     }
 
     private fun setSideBar() {
@@ -49,21 +49,11 @@ class OverviewActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggleSidebar)
         toggleSidebar.syncState()
 
-        sidebarButton.setOnClickListener {
-            if (drawerLayout.isDrawerOpen(navigationView)) {
-                drawerLayout.closeDrawer(navigationView)
-            } else {
-                drawerLayout.openDrawer(navigationView)
-            }
-        }
+        sidebarButton.setOnClickListener { presenter.sidebarButtonClicked() }
 
         drawerLayout.addDrawerListener(object : DrawerLayout.DrawerListener {
             override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
-                if (slideOffset > 0.3) {
-                    sidebarButton.setImageResource(R.drawable.arrow_back_icon)
-                } else {
-                    sidebarButton.setImageResource(R.drawable.menu_icon)
-                }
+                presenter.onDrawerLayoutSlide(slideOffset)
             }
 
             override fun onDrawerStateChanged(newState: Int) {}
@@ -96,24 +86,20 @@ class OverviewActivity : AppCompatActivity() {
 
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
     }
 
     private fun setAdapters() {
         todayEventsLayoutManager = LinearLayoutManager(this)
         todayEventsRecyclerView.layoutManager = todayEventsLayoutManager
-
-        val event1 = PendingEvent("Event 1", "10:00", "1.")
-        val event2 = PendingEvent("Event 2", "11:00", "2.")
-
-        todayEventsAdapter = PendingEventAdapter(arrayListOf(event1, event2))
+        todayEventsAdapter = PendingEventAdapter(presenter.getTodayEvents())
         todayEventsRecyclerView.adapter = todayEventsAdapter
     }
 
     private fun setListeners() {
-        addImageButton.setOnClickListener {
-            val intent = Intent(this, AddEventActivity::class.java)
-            startActivity(intent)
-        }
+        addImageButton.setOnClickListener { presenter.createNewEvent() }
+    }
+
+    fun getAddEventActivityIntent(): Intent {
+        return Intent(this, AddEventActivity::class.java)
     }
 }

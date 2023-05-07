@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.events.AddEventActivity">
+    tools:context=".ui.events.AddEventActivity"
+    tools:ignore="UseAppTint">
 
     <ImageView
         android:id="@+id/imageview_addevent_back"
@@ -18,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textview_addevent_title"
         android:src="@drawable/arrow_back_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <TextView
         android:id="@+id/textview_addevent_title"
@@ -138,7 +139,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageview_addevent_back"
         app:layout_constraintTop_toTopOf="@+id/edittext_addevent_name"
         app:srcCompat="@drawable/edit_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <ImageView
         android:id="@+id/imageview_addevent_day"
@@ -148,7 +149,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageview_addevent_editname"
         app:layout_constraintTop_toTopOf="@+id/textview_addevent_day"
         app:srcCompat="@drawable/schedule_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <ImageView
         android:id="@+id/imageview_addevent_location"
@@ -158,7 +159,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageview_addevent_day"
         app:layout_constraintTop_toTopOf="@+id/edittext_addevent_location"
         app:srcCompat="@drawable/location_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <ImageView
         android:id="@+id/imageview_addevent_notification"
@@ -168,7 +169,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageview_addevent_location"
         app:layout_constraintTop_toTopOf="@+id/textview_addevent_notif"
         app:srcCompat="@drawable/notification_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <ImageView
         android:id="@+id/imageview_addevent_notes"
@@ -178,7 +179,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageview_addevent_notification"
         app:layout_constraintTop_toTopOf="@+id/edittext_addevent_note"
         app:srcCompat="@drawable/edit_note_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <ImageView
         android:id="@+id/imageview_addevent_onetime"
@@ -188,7 +189,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageview_addevent_notification"
         app:layout_constraintTop_toTopOf="@+id/checkbox_addevent_onetime"
         app:srcCompat="@drawable/event_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <ImageButton
         android:id="@+id/imageButton_addevent_save"
@@ -202,7 +203,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textview_addevent_title"
         app:srcCompat="@drawable/save_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <EditText
         android:id="@+id/edittext_addevent_location"

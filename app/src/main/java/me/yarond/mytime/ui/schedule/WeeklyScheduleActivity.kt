@@ -2,6 +2,7 @@ package me.yarond.mytime.ui.schedule
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -11,24 +12,26 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import me.yarond.mytime.R
+import me.yarond.mytime.model.Day
 import me.yarond.mytime.ui.settings.SettingsActivity
 import me.yarond.mytime.model.PendingEvent
+import me.yarond.mytime.ui.activityTypes.SidebarActivity
 import me.yarond.mytime.ui.events.AddEventActivity
+import me.yarond.mytime.ui.fragmentTypes.SidebarFragmentActivity
 import me.yarond.mytime.ui.overview.OverviewActivity
 
-class WeeklyScheduleActivity : FragmentActivity() {
+class WeeklyScheduleActivity : SidebarFragmentActivity() {
 
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
-    private lateinit var drawerLayout: DrawerLayout
     private lateinit var toggleSidebar: ActionBarDrawerToggle
-    private lateinit var navigationView: NavigationView
-    private lateinit var sidebarButton: ImageButton
     private lateinit var addEventButton: ImageButton
+    private lateinit var presenter: WeeklySchedulePresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weekly_schedule)
+        presenter = WeeklySchedulePresenter(this)
         setViews()
         setSideBar()
         setButtons()
@@ -36,65 +39,28 @@ class WeeklyScheduleActivity : FragmentActivity() {
     }
 
     private fun setViews() {
-        viewPager = findViewById<ViewPager2>(R.id.viewpager_weeklyschedule)
-        tabLayout = findViewById<TabLayout>(R.id.tablayout_weeklyschedule)
-        drawerLayout = findViewById<DrawerLayout>(R.id.drawerlayout_weeklyschedule)
-        navigationView = findViewById<NavigationView>(R.id.navigationview_weeklyschedule)
-        sidebarButton = findViewById<ImageButton>(R.id.imagebutton_weeklyschedule_sidebar)
-        addEventButton = findViewById<ImageButton>(R.id.imagebutton_weeklyschedule_add)
+        viewPager = findViewById(R.id.viewpager_weeklyschedule)
+        tabLayout = findViewById(R.id.tablayout_weeklyschedule)
+        drawerLayout = findViewById(R.id.drawerlayout_weeklyschedule)
+        navigationView = findViewById(R.id.navigationview_weeklyschedule)
+        sidebarButton = findViewById(R.id.imagebutton_weeklyschedule_sidebar)
+        addEventButton = findViewById(R.id.imagebutton_weeklyschedule_add)
     }
 
     private fun setButtons() {
-        addEventButton.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this, AddEventActivity::class.java)
-            startActivity(intent)
-        })
+        addEventButton.setOnClickListener{ presenter.createNewEvent() }
     }
 
     private fun setAdapters() {
         val adapter = DaySchedulePagerAdapter(this)
-        adapter.addFragment(
-            DayScheduleFragment(arrayListOf(
-            PendingEvent("Event 1", "10:00", "1"),
-            PendingEvent("Event 2", "11:00", "2")
-        ), "Sunday"), R.string.sunday_short.toString())
-        adapter.addFragment(
-            DayScheduleFragment(arrayListOf(
-            PendingEvent("Event 3", "10:00", "1"),
-            PendingEvent("Event 4", "11:00", "2")
-        ), "Monday"), R.string.monday_short.toString())
-        adapter.addFragment(
-            DayScheduleFragment(arrayListOf(
-            PendingEvent("Event 5", "10:00", "1"),
-            PendingEvent("Event 6", "11:00", "2")
-        ), "Tuesday"), R.string.tuesday_short.toString())
-        adapter.addFragment(
-            DayScheduleFragment(arrayListOf(
-            PendingEvent("Event 7", "10:00", "1"),
-            PendingEvent("Event 8", "11:00", "2")
-        ), "Wednesday"), R.string.wednesday_short.toString())
-        adapter.addFragment(
-            DayScheduleFragment(arrayListOf(
-            PendingEvent("Event 9", "10:00", "1"),
-            PendingEvent("Event 10", "11:00", "2")
-        ), "Thursday"), R.string.thursday_short.toString())
-        adapter.addFragment(
-            DayScheduleFragment(arrayListOf(
-            PendingEvent("Event 11", "10:00", "1"),
-            PendingEvent("Event 12", "11:00", "2")
-        ), "Friday"), R.string.friday_short.toString())
-        adapter.addFragment(
-            DayScheduleFragment(arrayListOf(
-            PendingEvent("Event 13", "10:00", "1"),
-            PendingEvent("Event 14", "11:00", "2")
-        ), "Saturday"), R.string.saturday_short.toString())
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.sunday_short))
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.monday_short))
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.tuesday_short))
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.wednesday_short))
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.thursday_short))
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.friday_short))
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.saturday_short))
+
+        Day.values().iterator().forEach {
+            adapter.addFragment(presenter.getDayScheduleFragment(it), getStringFromResourceId(it.shortName))
+        }
+
+        Day.values().iterator().forEach {
+            tabLayout.addTab(tabLayout.newTab().setText(getStringFromResourceId(it.shortName)))
+        }
 
         viewPager.adapter = adapter
 
@@ -124,21 +90,11 @@ class WeeklyScheduleActivity : FragmentActivity() {
         drawerLayout.addDrawerListener(toggleSidebar)
         toggleSidebar.syncState()
 
-        sidebarButton.setOnClickListener {
-            if (drawerLayout.isDrawerOpen(navigationView)) {
-                drawerLayout.closeDrawer(navigationView)
-            } else {
-                drawerLayout.openDrawer(navigationView)
-            }
-        }
+        sidebarButton.setOnClickListener { presenter.sidebarButtonClicked() }
 
         drawerLayout.addDrawerListener(object : DrawerLayout.DrawerListener {
             override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
-                if (slideOffset > 0.3) {
-                    sidebarButton.setImageResource(R.drawable.arrow_back_icon)
-                } else {
-                    sidebarButton.setImageResource(R.drawable.menu_icon)
-                }
+                presenter.onDrawerLayoutSlide(slideOffset)
             }
 
             override fun onDrawerStateChanged(newState: Int) {}
@@ -171,5 +127,29 @@ class WeeklyScheduleActivity : FragmentActivity() {
 
 
         this.actionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    fun setSidebarButtonImageResource(resourceId: Int) {
+        sidebarButton.setImageResource(resourceId)
+    }
+
+    fun getArrowBackResourceId(): Int {
+        return R.drawable.arrow_back_icon
+    }
+
+    fun getMenuIconResourceId(): Int {
+        return R.drawable.menu_icon
+    }
+
+    fun getAddEventActivityIntent(): Intent {
+        return Intent(this, AddEventActivity::class.java)
+    }
+
+    private fun getStringFromResourceId(resourceId: Int): String {
+        return resources.getString(resourceId)
+    }
+
+    fun getStringFromResourceId(resourceId: String): String {
+        return getStringFromResourceId(Integer.parseInt(resourceId))
     }
 }

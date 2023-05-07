@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.schedule.DayScheduleFragment">
+    tools:context=".ui.schedule.DayScheduleFragment"
+    tools:ignore="UseAppTint">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_dayschedule"
@@ -34,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     app:srcCompat="@drawable/book_icon"
-                    app:tint="@color/secondary" />
+                    android:tint="@color/secondary" />
 
                 <android.widget.Space
                     android:layout_width="10dp"

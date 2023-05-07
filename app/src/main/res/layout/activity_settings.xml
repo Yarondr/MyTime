@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textview_settings_title"
         android:src="@drawable/menu_icon"
-        app:tint="@color/secondary" />
+        android:tint="@color/secondary" />
 
     <View
         android:id="@+id/view_weeklyschedule_header_line"

@@ -40,73 +40,8 @@
             <RadioGroup
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
-
-                <RadioButton
-                    android:id="@+id/radiobutton_notifpicker_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand_medium"
-                    android:layoutDirection="rtl"
-                    android:text="@string/notification_none"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/secondary"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/radiobutton_notifpicker_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand_medium"
-                    android:layoutDirection="rtl"
-                    android:text="@string/notification_10min"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/secondary"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/radiobutton_notifpicker_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand_medium"
-                    android:layoutDirection="rtl"
-                    android:text="@string/notification_30min"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/secondary"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/radiobutton_notifpicker_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand_medium"
-                    android:layoutDirection="rtl"
-                    android:text="@string/notification_1hour"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/secondary"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/radiobutton_notifpicker_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand_medium"
-                    android:layoutDirection="rtl"
-                    android:text="@string/notification_3hours"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/secondary"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/radiobutton_notifpicker_6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/quicksand_medium"
-                    android:layoutDirection="rtl"
-                    android:text="@string/notification_1day"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/secondary"
-                    android:textSize="18sp" />
+                android:layout_marginTop="16dp"
+                android:id="@+id/radiogroup_notifpicker">
 
             </RadioGroup>
 
