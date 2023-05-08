@@ -69,10 +69,22 @@ class AddEventActivity : DefaultActivity() {
         dayDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
         val radioGroup: RadioGroup = dayDialog.findViewById(R.id.radiogroup_daypicker)
+        Day.values().iterator().forEach { notification ->
+            val radioButton = RadioButton(this)
+            radioButton.text = notification.value
+            radioButton.layoutDirection = View.LAYOUT_DIRECTION_RTL
+            radioButton.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
+            radioButton.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+            radioButton.textSize = 18f
+            radioButton.typeface = resources.getFont(R.font.quicksand_medium)
+            radioButton.setTextColor(ContextCompat.getColor(this, R.color.secondary))
+            radioGroup.addView(radioButton)
+        }
+
         radioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
             val radioButton = group.findViewById<RadioButton>(checkedId)
             val index = group.indexOfChild(radioButton)
-            val day = resources.getString(Integer.parseInt(Day.values()[index].value))
+            val day = Day.values()[index].value
             presenter.setSelectedDay(day)
             dayDialog.dismiss()
         })

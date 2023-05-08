@@ -94,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
                         android:fontFamily="@font/quicksand_medium"
-                        android:text="04/02/2023"
+                        android:text="01/01/1999"
                         android:textColor="@color/on_background_hidden"
                         android:textSize="12sp" />
 

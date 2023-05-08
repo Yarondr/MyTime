@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import me.yarond.mytime.R
-import me.yarond.mytime.model.PendingEvent
+import me.yarond.mytime.model.Event
 import me.yarond.mytime.ui.events.ViewEventActivity
 
-class PendingEventAdapter(private var events: ArrayList<PendingEvent>) : RecyclerView.Adapter<PendingEventAdapter.ViewHolder>() {
+class PendingEventAdapter(private var events: ArrayList<Event>) : RecyclerView.Adapter<PendingEventAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.recycleritem_pending_event, parent, false)
@@ -19,9 +19,11 @@ class PendingEventAdapter(private var events: ArrayList<PendingEvent>) : Recycle
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val event = events[position]
-        holder.titleTextView.text = event.title
-        holder.timeTextView.text = event.time
-        holder.numberTextView.text = event.number
+        val eventOrder = position + 1
+        holder.titleTextView.text = event.name
+        holder.timeTextView.text = event.startTime
+        holder.numberTextView.text = eventOrder.toString()
+        holder.event = event
     }
 
     override fun getItemCount(): Int {
@@ -32,14 +34,16 @@ class PendingEventAdapter(private var events: ArrayList<PendingEvent>) : Recycle
         var titleTextView: TextView
         var timeTextView: TextView
         var numberTextView: TextView
+        var event: Event? = null
 
         init {
-            titleTextView = itemView.findViewById<TextView>(R.id.textview_pending_event_title)
-            timeTextView = itemView.findViewById<TextView>(R.id.textview_pending_event_time)
-            numberTextView = itemView.findViewById<TextView>(R.id.textview_pending_event_number)
+            titleTextView = itemView.findViewById(R.id.textview_pending_event_title)
+            timeTextView = itemView.findViewById(R.id.textview_pending_event_time)
+            numberTextView = itemView.findViewById(R.id.textview_pending_event_number)
 
             itemView.setOnClickListener {
                 val intent = Intent(timeTextView.context, ViewEventActivity::class.java)
+                intent.putExtra("event", event)
                 timeTextView.context.startActivity(intent)
             }
         }

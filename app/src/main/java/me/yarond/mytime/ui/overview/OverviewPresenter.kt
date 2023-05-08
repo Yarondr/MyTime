@@ -1,9 +1,23 @@
 package me.yarond.mytime.ui.overview
 
-import me.yarond.mytime.model.PendingEvent
+import me.yarond.mytime.Repository
+import me.yarond.mytime.model.Event
 import me.yarond.mytime.ui.UtilPresenter
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
-class OverviewPresenter(private var view: OverviewActivity) {
+class OverviewPresenter(private var view: OverviewActivity) : Repository.EventsListener {
+
+    init {
+        val repository = Repository.getInstance()
+        repository.setEventsListener(this)
+        repository.readTodayEvents()
+    }
+
+    fun getTodayDate(): String {
+        // in format: dd/mm/yy
+        return LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yy"))
+    }
 
     fun sidebarButtonClicked() {
         UtilPresenter.sidebarButtonClicked(view)
@@ -13,14 +27,11 @@ class OverviewPresenter(private var view: OverviewActivity) {
         UtilPresenter.onDrawerLayoutSlide(view, slideOffset)
     }
 
-    fun getTodayEvents(): ArrayList<PendingEvent> {
-        val event1 = PendingEvent("Event 1", "10:00", "1.")
-        val event2 = PendingEvent("Event 2", "11:00", "2.")
-
-        return arrayListOf(event1, event2)
-    }
-
     fun createNewEvent() {
         view.startActivity(view.getAddEventActivityIntent())
+    }
+
+    override fun onTodayEventsReceived(events: ArrayList<Event>) {
+        view.updateTodayEvents(events)
     }
 }

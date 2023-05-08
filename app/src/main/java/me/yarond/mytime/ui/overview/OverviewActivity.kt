@@ -1,20 +1,20 @@
 package me.yarond.mytime.ui.overview
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.navigation.NavigationView
 import me.yarond.mytime.R
+import me.yarond.mytime.Repository
+import me.yarond.mytime.model.Event
 import me.yarond.mytime.ui.events.AddEventActivity
 import me.yarond.mytime.ui.settings.SettingsActivity
 import me.yarond.mytime.ui.schedule.WeeklyScheduleActivity
-import me.yarond.mytime.model.PendingEvent
 import me.yarond.mytime.ui.activityTypes.SidebarActivity
 
 class OverviewActivity : SidebarActivity() {
@@ -22,6 +22,7 @@ class OverviewActivity : SidebarActivity() {
     private lateinit var todayEventsLayoutManager: RecyclerView.LayoutManager
     private lateinit var todayEventsAdapter: RecyclerView.Adapter<PendingEventAdapter.ViewHolder>
     private lateinit var todayEventsRecyclerView: RecyclerView
+    private lateinit var todayDateTextView: TextView
     private lateinit var addImageButton: ImageButton
     private lateinit var toggleSidebar: ActionBarDrawerToggle
     private lateinit var presenter: OverviewPresenter
@@ -30,6 +31,7 @@ class OverviewActivity : SidebarActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_overview)
         presenter = OverviewPresenter(this)
+        Repository.getInstance().write()
         setViews()
         setSideBar()
         setAdapters()
@@ -42,10 +44,12 @@ class OverviewActivity : SidebarActivity() {
         drawerLayout = findViewById(R.id.drawer_layout_overview)
         navigationView = findViewById(R.id.navigationview_overview)
         sidebarButton = findViewById(R.id.imagebutton_overview_sidebar)
+        todayDateTextView = findViewById(R.id.textview_overview_today_date)
+        todayDateTextView.text = presenter.getTodayDate()
     }
 
     private fun setSideBar() {
-        toggleSidebar = ActionBarDrawerToggle(this, drawerLayout, R.string.sunday, R.string.friday)
+        toggleSidebar = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggleSidebar)
         toggleSidebar.syncState()
 
@@ -91,7 +95,12 @@ class OverviewActivity : SidebarActivity() {
     private fun setAdapters() {
         todayEventsLayoutManager = LinearLayoutManager(this)
         todayEventsRecyclerView.layoutManager = todayEventsLayoutManager
-        todayEventsAdapter = PendingEventAdapter(presenter.getTodayEvents())
+        todayEventsAdapter = PendingEventAdapter(arrayListOf())
+        todayEventsRecyclerView.adapter = todayEventsAdapter
+    }
+
+    fun updateTodayEvents(events: ArrayList<Event>) {
+        todayEventsAdapter = PendingEventAdapter(events)
         todayEventsRecyclerView.adapter = todayEventsAdapter
     }
 

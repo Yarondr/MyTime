@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import me.yarond.mytime.R
-import me.yarond.mytime.model.PendingEvent
+import me.yarond.mytime.model.Event
 import me.yarond.mytime.ui.overview.PendingEventAdapter
 
 /**
@@ -17,7 +17,7 @@ import me.yarond.mytime.ui.overview.PendingEventAdapter
  * Use the [DayScheduleFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class DayScheduleFragment(private var events: ArrayList<PendingEvent>, private var day: String) : Fragment() {
+class DayScheduleFragment(private var events: ArrayList<Event>, private var day: String) : Fragment() {
     // TODO: Rename and change types of parameters
     private lateinit var eventsLayoutManager: RecyclerView.LayoutManager
     private lateinit var eventsAdapter: RecyclerView.Adapter<PendingEventAdapter.ViewHolder>
@@ -36,7 +36,7 @@ class DayScheduleFragment(private var events: ArrayList<PendingEvent>, private v
         setAdapters(view, events)
     }
 
-    private fun setAdapters(view: View, events: ArrayList<PendingEvent>) {
+    private fun setAdapters(view: View, events: ArrayList<Event>) {
         eventsLayoutManager = LinearLayoutManager(view.context)
         eventsRecyclerView.layoutManager = eventsLayoutManager
 
@@ -62,7 +62,7 @@ class DayScheduleFragment(private var events: ArrayList<PendingEvent>, private v
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(events: ArrayList<PendingEvent>, day: String) =
+        fun newInstance(events: ArrayList<Event>, day: String) =
             DayScheduleFragment(events, day).apply {
                 arguments = Bundle().apply {}
             }

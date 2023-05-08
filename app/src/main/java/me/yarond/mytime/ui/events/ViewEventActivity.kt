@@ -1,13 +1,22 @@
 package me.yarond.mytime.ui.events
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import me.yarond.mytime.R
+import me.yarond.mytime.model.Event
 import me.yarond.mytime.ui.activityTypes.DefaultActivity
 
 class ViewEventActivity : DefaultActivity() {
 
+    private lateinit var eventNameTextView: TextView
+    private lateinit var eventDayTextView: TextView
+    private lateinit var eventStartTextView: TextView
+    private lateinit var eventEndTextView: TextView
+    private lateinit var eventNotificationTextView: TextView
+    private lateinit var eventLocationTextView: TextView
+    private lateinit var eventNotesTextView: TextView
+    private lateinit var eventOneTimeImageView: ImageView
     private lateinit var backImageView: ImageView
     private lateinit var presenter: ViewEventPresenter
 
@@ -17,14 +26,59 @@ class ViewEventActivity : DefaultActivity() {
         presenter = ViewEventPresenter(this)
         setViews()
         setListeners()
+        presenter.setEvent(intent.getSerializableExtra("event") as Event)
     }
 
     private fun setViews() {
+        eventNameTextView = findViewById(R.id.textview_viewevent_name)
+        eventDayTextView = findViewById(R.id.textview_viewevent_day)
+        eventStartTextView = findViewById(R.id.textview_viewevent_start)
+        eventEndTextView = findViewById(R.id.textview_viewevent_end)
+        eventNotificationTextView = findViewById(R.id.textview_viewevent_notif)
+        eventLocationTextView = findViewById(R.id.textview_viewevent_location)
+        eventNotesTextView = findViewById(R.id.textview_viewevent_notes)
+        eventOneTimeImageView = findViewById(R.id.imageview_viewevent_onetime)
         backImageView = findViewById(R.id.imageview_viewevent_back)
     }
 
     private fun setListeners() {
         backImageView.setOnClickListener { presenter.backClicked() }
+    }
+
+    fun setEventName(name: String) {
+        eventNameTextView.text = name
+    }
+
+    fun setEventDay(day: String) {
+        eventDayTextView.text = day
+    }
+
+    fun setEventStartTime(start: String) {
+        eventStartTextView.text = start
+    }
+
+    fun setEventEndTime(end: String) {
+        eventEndTextView.text = end
+    }
+
+    fun setEventNotification(notification: String) {
+        eventNotificationTextView.text = notification
+    }
+
+    fun setEventLocation(location: String) {
+        eventLocationTextView.text = location
+    }
+
+    fun setEventNotes(notes: String) {
+        eventNotesTextView.text = notes
+    }
+
+    fun setEventToOneTime() {
+        eventOneTimeImageView.setImageResource(R.drawable.check_icon)
+    }
+
+    fun setEventToRecurring() {
+        eventOneTimeImageView.setImageResource(R.drawable.deny_icon)
     }
 
 }

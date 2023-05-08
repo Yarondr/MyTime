@@ -4,32 +4,32 @@ import me.yarond.mytime.R
 
 enum class Day {
     Sunday {
-        override val shortName: String = R.string.sunday_short.toString()
-        override val value: String = R.string.sunday.toString()
+        override val shortName: String = "SUN"
+        override val value: String = "Sunday"
     },
     Monday {
-        override val shortName: String = R.string.monday_short.toString()
-        override val value: String = R.string.monday.toString()
+        override val shortName: String = "MON"
+        override val value: String = "Monday"
     },
     Tuesday {
-        override val shortName: String = R.string.tuesday_short.toString()
-        override val value: String = R.string.tuesday.toString()
+        override val shortName: String = "TUE"
+        override val value: String = "Tuesday"
     },
     Wednesday {
-        override val shortName: String = R.string.wednesday_short.toString()
-        override val value: String = R.string.wednesday.toString()
+        override val shortName: String = "WED"
+        override val value: String = "Wednesday"
     },
     Thursday {
-        override val shortName: String = R.string.thursday_short.toString()
-        override val value: String = R.string.thursday.toString()
+        override val shortName: String = "THU"
+        override val value: String = "Thursday"
     },
     Friday {
-        override val shortName: String = R.string.friday_short.toString()
-        override val value: String = R.string.friday.toString()
+        override val shortName: String = "FRI"
+        override val value: String = "Friday"
     },
     Saturday {
-        override val shortName: String = R.string.saturday_short.toString()
-        override val value: String = R.string.saturday.toString()
+        override val shortName: String = "SAT"
+        override val value: String = "Saturday"
     };
 
     abstract val shortName: String

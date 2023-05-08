@@ -15,20 +15,6 @@
     <string name="addevent_no_notes">Add Notes</string>
     <string name="addevent_save">Save</string>
     <string name="day_picker_title">Select a day:</string>
-    <string name="sunday">Sunday</string>
-    <string name="monday">Monday</string>
-    <string name="tuesday">Tuesday</string>
-    <string name="wednesday">Wednesday</string>
-    <string name="thursday">Thursday</string>
-    <string name="friday">Friday</string>
-    <string name="saturday">Saturday</string>
-    <string name="sunday_short">SUN</string>
-    <string name="monday_short">MON</string>
-    <string name="tuesday_short">TUE</string>
-    <string name="wednesday_short">WED</string>
-    <string name="thursday_short">THU</string>
-    <string name="friday_short">FRI</string>
-    <string name="saturday_short">SAT</string>
     <string name="notification_picker_title">Select a notification:</string>
     <string name="notification_none">None</string>
     <string name="notification_10min">10 minutes before</string>
@@ -78,4 +64,6 @@
     <string name="settings_title">Settings</string>
     <string name="settings_darktheme">Dark Theme</string>
     <string name="nav_settings">Settings</string>
+    <string name="open">OPEN</string>
+    <string name="close">CLOSE</string>
 </resources>

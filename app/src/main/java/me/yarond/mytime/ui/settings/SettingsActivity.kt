@@ -37,11 +37,10 @@ class SettingsActivity : SidebarActivity() {
         drawerLayout = findViewById(R.id.drawerlayout_settings)
         navigationView = findViewById(R.id.navigationview_settings)
         sidebarButton = findViewById(R.id.imagebutton_settings_sidebar)
-        toggleSidebar = ActionBarDrawerToggle(this, drawerLayout, R.string.sunday, R.string.friday)
     }
 
     private fun setSideBar() {
-        toggleSidebar = ActionBarDrawerToggle(this, drawerLayout, R.string.sunday, R.string.friday)
+        toggleSidebar = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggleSidebar)
         toggleSidebar.syncState()
 

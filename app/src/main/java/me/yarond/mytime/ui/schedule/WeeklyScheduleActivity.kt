@@ -2,20 +2,15 @@ package me.yarond.mytime.ui.schedule
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import me.yarond.mytime.R
 import me.yarond.mytime.model.Day
 import me.yarond.mytime.ui.settings.SettingsActivity
-import me.yarond.mytime.model.PendingEvent
-import me.yarond.mytime.ui.activityTypes.SidebarActivity
 import me.yarond.mytime.ui.events.AddEventActivity
 import me.yarond.mytime.ui.fragmentTypes.SidebarFragmentActivity
 import me.yarond.mytime.ui.overview.OverviewActivity
@@ -55,11 +50,11 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
         val adapter = DaySchedulePagerAdapter(this)
 
         Day.values().iterator().forEach {
-            adapter.addFragment(presenter.getDayScheduleFragment(it), getStringFromResourceId(it.shortName))
+            adapter.addFragment(presenter.getDayScheduleFragment(it), it.shortName)
         }
 
         Day.values().iterator().forEach {
-            tabLayout.addTab(tabLayout.newTab().setText(getStringFromResourceId(it.shortName)))
+            tabLayout.addTab(tabLayout.newTab().setText(it.shortName))
         }
 
         viewPager.adapter = adapter
@@ -86,7 +81,7 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
     }
 
     private fun setSideBar() {
-        toggleSidebar = ActionBarDrawerToggle(this, drawerLayout, R.string.sunday, R.string.friday)
+        toggleSidebar = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggleSidebar)
         toggleSidebar.syncState()
 
@@ -129,27 +124,7 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
         this.actionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    fun setSidebarButtonImageResource(resourceId: Int) {
-        sidebarButton.setImageResource(resourceId)
-    }
-
-    fun getArrowBackResourceId(): Int {
-        return R.drawable.arrow_back_icon
-    }
-
-    fun getMenuIconResourceId(): Int {
-        return R.drawable.menu_icon
-    }
-
     fun getAddEventActivityIntent(): Intent {
         return Intent(this, AddEventActivity::class.java)
-    }
-
-    private fun getStringFromResourceId(resourceId: Int): String {
-        return resources.getString(resourceId)
-    }
-
-    fun getStringFromResourceId(resourceId: String): String {
-        return getStringFromResourceId(Integer.parseInt(resourceId))
     }
 }

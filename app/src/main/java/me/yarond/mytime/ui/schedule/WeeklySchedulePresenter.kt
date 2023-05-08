@@ -1,16 +1,17 @@
 package me.yarond.mytime.ui.schedule
 
 import me.yarond.mytime.model.Day
-import me.yarond.mytime.model.PendingEvent
+import me.yarond.mytime.model.Event
+import me.yarond.mytime.model.Notifications
 import me.yarond.mytime.ui.UtilPresenter
 
 class WeeklySchedulePresenter(private var view: WeeklyScheduleActivity) {
 
     fun getDayScheduleFragment(day: Day): DayScheduleFragment {
         return DayScheduleFragment(arrayListOf(
-            PendingEvent("Event 1", "10:00", "1"),
-            PendingEvent("Event 2", "11:00", "2")
-        ), view.getStringFromResourceId(day.value))
+            Event("Event 1",  Day.Sunday , "10:00", "11:00", Notifications.None, "Home", "Notes", false),
+            Event("Event 1",  Day.Monday, "10:00", "11:00", Notifications.None, "Home", "Notes", false),
+        ), day.value)
     }
 
     fun sidebarButtonClicked() {
