@@ -1,7 +1,7 @@
 package me.yarond.mytime
 
 import android.util.Log
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
 import me.yarond.mytime.model.Notifications
@@ -22,7 +22,7 @@ class Repository {
         @Volatile
         private var instance: Repository? = null
 
-        private val database = FirebaseDatabase.getInstance("https://mytime-31dce-default-rtdb.firebaseio.com/")
+        private var database = FirebaseFirestore.getInstance()
 
         fun getInstance(): Repository {
             return instance ?: synchronized(this) {
@@ -31,21 +31,13 @@ class Repository {
         }
     }
 
-    fun readTodayEvents() {
-        val myRef = database.getReference("events/8\\5\\23")
-        myRef.get().addOnSuccessListener {
-            val events = (it.value as ArrayList<*>).map { event ->
-                val eventMap = event as HashMap<*, *>
-                Event(eventMap["name"] as String,
-                    Day.valueOf(eventMap["day"] as String),
-                    eventMap["startTime"] as String,
-                    eventMap["endTime"] as String,
-                    Notifications.valueOf(eventMap["notification"] as String),
-                    eventMap["location"] as String,
-                    eventMap["notes"] as String,
-                    eventMap["once"] as Boolean)
+    fun readTodayEvents(day: Day) {
+        database.collection("events").document(day.value).collection("events").get()
+        .addOnSuccessListener { it ->
+            val events = it.documents.map {
+                it.toObject(Event::class.java)!!
             }
-            eventsListener.onTodayEventsReceived(events as ArrayList<Event>)
+            eventsListener.onTodayEventsReceived(ArrayList(events))
         }.addOnFailureListener {
             Log.e("FIREBASE", "Error getting data", it)
         }
@@ -54,9 +46,10 @@ class Repository {
     fun write() {
         val events = ArrayList<Event>()
         events.add(Event("Event 1", Day.Sunday, "12:00", "13:00", Notifications.HalfHourBefore, "Location 1", "Notes 1", true))
-        events.add(Event("Event 2", Day.Monday, "12:00", "13:00", Notifications.ThreeHoursBefore, "Location 2", "Notes 2", false))
-
-        val myRef = database.getReference("events/8\\5\\23")
-        myRef.setValue(events)
+        events.add(Event("Event 2", Day.Monday, "13:00", "15:00", Notifications.ThreeHoursBefore, "Location 2", "Notes 2", false))
+        events.forEach {
+            val id = it.generateId()
+            database.collection("events").document("Sunday").collection("events").document(id).set(it)
+        }
     }
 }
