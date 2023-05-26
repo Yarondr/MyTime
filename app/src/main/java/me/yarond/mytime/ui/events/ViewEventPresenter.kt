@@ -1,5 +1,6 @@
 package me.yarond.mytime.ui.events
 
+import me.yarond.mytime.Repository
 import me.yarond.mytime.model.Event
 
 class ViewEventPresenter(private var view: ViewEventActivity) {
@@ -9,6 +10,7 @@ class ViewEventPresenter(private var view: ViewEventActivity) {
     }
 
     fun setEvent(event: Event) {
+        view.setEventId(event.generateId())
         view.setEventName(event.name)
         view.setEventDay(event.day.value)
         view.setEventStartTime("Start Time: " + event.startTime)
@@ -21,5 +23,11 @@ class ViewEventPresenter(private var view: ViewEventActivity) {
         } else {
             view.setEventToRecurring()
         }
+    }
+
+    fun onDeleteConfirm(day: String, id: String) {
+        var repository = Repository.getInstance()
+        repository.deleteEvent(day, id)
+        view.finish()
     }
 }

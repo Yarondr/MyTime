@@ -66,4 +66,7 @@
     <string name="nav_settings">Settings</string>
     <string name="open">OPEN</string>
     <string name="close">CLOSE</string>
+    <string name="delete_event">Delete Event</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

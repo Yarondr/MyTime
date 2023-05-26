@@ -1,9 +1,13 @@
 package me.yarond.mytime.ui.events
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import me.yarond.mytime.R
+import me.yarond.mytime.Repository
+import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
 import me.yarond.mytime.ui.activityTypes.DefaultActivity
 
@@ -17,7 +21,10 @@ class ViewEventActivity : DefaultActivity() {
     private lateinit var eventLocationTextView: TextView
     private lateinit var eventNotesTextView: TextView
     private lateinit var eventOneTimeImageView: ImageView
+    private lateinit var deleteImageView: ImageView
     private lateinit var backImageView: ImageView
+
+    private lateinit var id: String
     private lateinit var presenter: ViewEventPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,10 +46,22 @@ class ViewEventActivity : DefaultActivity() {
         eventNotesTextView = findViewById(R.id.textview_viewevent_notes)
         eventOneTimeImageView = findViewById(R.id.imageview_viewevent_onetime)
         backImageView = findViewById(R.id.imageview_viewevent_back)
+        deleteImageView = findViewById(R.id.imagebutton_viewevent_delete)
     }
 
     private fun setListeners() {
         backImageView.setOnClickListener { presenter.backClicked() }
+        deleteImageView.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Delete Event?")
+                .setMessage("Are you sure you want to delete this event?")
+                .setIcon(R.drawable.warning_icon)
+                .setPositiveButton(R.string.yes) { dialog, whichButton ->
+                    presenter.onDeleteConfirm(eventDayTextView.text.toString(), id)
+                }
+                .setNegativeButton(R.string.no) { dialog, whichButton -> }
+                .show()
+        }
     }
 
     fun setEventName(name: String) {
@@ -79,6 +98,10 @@ class ViewEventActivity : DefaultActivity() {
 
     fun setEventToRecurring() {
         eventOneTimeImageView.setImageResource(R.drawable.deny_icon)
+    }
+
+    fun setEventId(id: String) {
+        this.id = id
     }
 
 }

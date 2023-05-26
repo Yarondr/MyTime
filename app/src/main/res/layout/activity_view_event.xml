@@ -201,4 +201,17 @@
         app:layout_constraintStart_toStartOf="@+id/textview_viewevent_location"
         app:layout_constraintTop_toBottomOf="@+id/textview_viewevent_location" />
 
+    <ImageButton
+        android:id="@+id/imagebutton_viewevent_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/delete_icon"
+        android:tint="@color/error"
+        android:contentDescription="@string/delete_event" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

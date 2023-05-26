@@ -1,7 +1,6 @@
 package me.yarond.mytime
 
 import android.util.Log
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
@@ -116,5 +115,11 @@ class Repository {
             .addOnFailureListener { e ->
                 Log.w("FIREBASE", "Error writing document", e)
             }
+    }
+
+    fun deleteEvent(text: String, id: String) {
+        Log.d("DELETE EVENT", text)
+        Log.d("DELETE EVENT", id)
+        database.collection("events").document(text).collection("events").document(id).delete()
     }
 }
