@@ -1,6 +1,7 @@
 package me.yarond.mytime.ui.overview
 
 import me.yarond.mytime.Repository
+import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
 import me.yarond.mytime.ui.UtilPresenter
 import java.time.LocalDate
@@ -11,7 +12,7 @@ class OverviewPresenter(private var view: OverviewActivity) : Repository.EventsL
     init {
         val repository = Repository.getInstance()
         repository.setEventsListener(this)
-        repository.readTodayEvents()
+        repository.readTodayEvents(Day.Sunday)
     }
 
     fun getTodayDate(): String {
