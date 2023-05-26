@@ -3,29 +3,38 @@ package me.yarond.mytime.ui.events
 import android.app.Dialog
 import android.app.TimePickerDialog
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.View
-import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
-import android.view.ViewGroup.MarginLayoutParams
 import android.view.Window
-import android.widget.*
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.view.marginTop
+import androidx.core.widget.doOnTextChanged
 import me.yarond.mytime.R
 import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Notifications
 import me.yarond.mytime.ui.activityTypes.DefaultActivity
 
 class AddEventActivity : DefaultActivity() {
+    private lateinit var nameEditText: EditText
+    private lateinit var daySelectorTextView: TextView
     private lateinit var startTimeTextView: TextView
     private lateinit var endTimeTextView: TextView
-    private lateinit var daySelectorTextView: TextView
     private lateinit var notificationSelectorTextView: TextView
+    private lateinit var locationEditText: EditText
+    private lateinit var notesEditText: EditText
+    private lateinit var onceCheckBox: CheckBox
+
     private lateinit var backImageView: ImageView
     private lateinit var saveImageButton: ImageButton
     private lateinit var dayDialog: Dialog
     private lateinit var notificationDialog: Dialog
+
     private lateinit var presenter: AddEventPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,22 +47,30 @@ class AddEventActivity : DefaultActivity() {
     }
 
     private fun setViews() {
+        nameEditText = findViewById(R.id.edittext_addevent_name)
+        daySelectorTextView = findViewById(R.id.textview_addevent_day)
         startTimeTextView = findViewById(R.id.textview_addevent_start)
         endTimeTextView = findViewById(R.id.textview_addevent_end)
+        notificationSelectorTextView = findViewById(R.id.textview_addevent_notif)
+        locationEditText = findViewById(R.id.edittext_addevent_location)
+        notesEditText = findViewById(R.id.edittext_addevent_notes)
+        onceCheckBox = findViewById(R.id.checkbox_addevent_once)
+
         backImageView = findViewById(R.id.imageview_addevent_back)
         saveImageButton = findViewById(R.id.imageButton_addevent_save)
-        daySelectorTextView = findViewById(R.id.textview_addevent_day)
-        notificationSelectorTextView = findViewById(R.id.textview_addevent_notif)
     }
 
     private fun setListeners() {
         backImageView.setOnClickListener { presenter.backClicked() }
         saveImageButton.setOnClickListener { presenter.saveEvent() }
+        nameEditText.doOnTextChanged { text, _, _, _ -> presenter.updateName(text.toString()) }
         daySelectorTextView.setOnClickListener { presenter.selectDay() }
         notificationSelectorTextView.setOnClickListener { presenter.selectNotificationOption() }
         startTimeTextView.setOnClickListener { presenter.selectTime(HourPickerType.START) }
         endTimeTextView.setOnClickListener { presenter.selectTime(HourPickerType.END) }
-
+        locationEditText.doOnTextChanged { text, _, _, _ ->  presenter.updateLocation(text.toString()) }
+        notesEditText.doOnTextChanged { text, _, _, _ ->  presenter.updateNotes(text.toString()) }
+        onceCheckBox.setOnCheckedChangeListener { _, isChecked -> presenter.updateOnce(isChecked) }
     }
 
     private fun createDialogs() {
@@ -81,13 +98,13 @@ class AddEventActivity : DefaultActivity() {
             radioGroup.addView(radioButton)
         }
 
-        radioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
             val radioButton = group.findViewById<RadioButton>(checkedId)
             val index = group.indexOfChild(radioButton)
             val day = Day.values()[index].value
             presenter.setSelectedDay(day)
             dayDialog.dismiss()
-        })
+        }
     }
 
     private fun createNotificationDialog() {
@@ -114,13 +131,13 @@ class AddEventActivity : DefaultActivity() {
             radioGroup.addView(radioButton)
         }
 
-        radioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
             val radioButton = group.findViewById<RadioButton>(checkedId)
             val index = group.indexOfChild(radioButton)
             val notification = Notifications.values()[index].value
             presenter.setSelectedNotification(notification)
             notificationDialog.dismiss()
-        })
+        }
 
         radioGroup.check(radioGroup.getChildAt(0).id)
     }
@@ -142,7 +159,9 @@ class AddEventActivity : DefaultActivity() {
 
         // show the time picker dialog and update the textview
         TimePickerDialog(this, { _, hourOfDay, minute ->
-            textView.text = String.format(hourPickerType.text + ": %02d:%02d", hourOfDay, minute)
+            val time = String.format("%02d:%02d", hourOfDay, minute)
+            presenter.updateTime(hourPickerType, time)
+            textView.text = String.format("%s: %s", hourPickerType.text, time)
         }, 12, 0, true).show()
     }
 
@@ -152,10 +171,5 @@ class AddEventActivity : DefaultActivity() {
 
     fun showNotificationDialog() {
         notificationDialog.show()
-    }
-
-    enum class HourPickerType(val text: String) {
-        START("Start time"),
-        END("End time")
     }
 }

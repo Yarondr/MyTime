@@ -22,7 +22,7 @@ class PendingEventAdapter(private var events: ArrayList<Event>) : RecyclerView.A
         val eventOrder = position + 1
         holder.titleTextView.text = event.name
         holder.timeTextView.text = event.startTime
-        holder.numberTextView.text = eventOrder.toString()
+        holder.numberTextView.text = String.format("%d.", eventOrder)
         holder.event = event
     }
 

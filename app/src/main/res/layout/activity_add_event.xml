@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/checkbox_addevent_onetime"
+        android:id="@+id/checkbox_addevent_once"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -53,11 +53,11 @@
         android:text="@string/on_time_event"
         android:textColor="@color/on_background"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/edittext_addevent_note"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_addevent_note" />
+        app:layout_constraintStart_toStartOf="@+id/edittext_addevent_notes"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_addevent_notes" />
 
     <EditText
-        android:id="@+id/edittext_addevent_note"
+        android:id="@+id/edittext_addevent_notes"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -175,19 +175,19 @@
         android:id="@+id/imageview_addevent_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/edittext_addevent_note"
+        app:layout_constraintBottom_toBottomOf="@+id/edittext_addevent_notes"
         app:layout_constraintStart_toStartOf="@+id/imageview_addevent_notification"
-        app:layout_constraintTop_toTopOf="@+id/edittext_addevent_note"
+        app:layout_constraintTop_toTopOf="@+id/edittext_addevent_notes"
         app:srcCompat="@drawable/edit_note_icon"
         android:tint="@color/secondary" />
 
     <ImageView
-        android:id="@+id/imageview_addevent_onetime"
+        android:id="@+id/imageview_addevent_once"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/checkbox_addevent_onetime"
+        app:layout_constraintBottom_toBottomOf="@+id/checkbox_addevent_once"
         app:layout_constraintStart_toStartOf="@+id/imageview_addevent_notification"
-        app:layout_constraintTop_toTopOf="@+id/checkbox_addevent_onetime"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_addevent_once"
         app:srcCompat="@drawable/event_icon"
         android:tint="@color/secondary" />
 

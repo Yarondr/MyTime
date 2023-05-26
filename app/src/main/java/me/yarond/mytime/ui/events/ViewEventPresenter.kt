@@ -13,7 +13,7 @@ class ViewEventPresenter(private var view: ViewEventActivity) {
         view.setEventDay(event.day.value)
         view.setEventStartTime("Start Time: " + event.startTime)
         view.setEventEndTime("End Time: " + event.endTime)
-        view.setEventNotification("Notification: " + event.notification.value)
+        view.setEventNotification(event.notification.value)
         view.setEventLocation(event.location)
         view.setEventNotes(event.notes)
         if (event.once) {
