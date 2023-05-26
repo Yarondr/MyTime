@@ -69,4 +69,7 @@
     <string name="delete_event">Delete Event</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
 </resources>

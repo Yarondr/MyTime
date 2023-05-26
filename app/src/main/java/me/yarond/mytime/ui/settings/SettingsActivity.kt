@@ -4,7 +4,9 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
@@ -13,12 +15,14 @@ import com.google.android.material.navigation.NavigationView
 import me.yarond.mytime.ui.activityTypes.SidebarActivity
 import me.yarond.mytime.R
 import me.yarond.mytime.ui.UtilPresenter
+import me.yarond.mytime.ui.login.LoginActivity
 import me.yarond.mytime.ui.overview.OverviewActivity
 import me.yarond.mytime.ui.schedule.WeeklyScheduleActivity
 
 class SettingsActivity : SidebarActivity() {
 
     private lateinit var themeSwitch: SwitchCompat
+    private lateinit var logoutButton: Button
     private lateinit var toggleSidebar: ActionBarDrawerToggle
     private lateinit var presenter: SettingsPresenter
 
@@ -34,6 +38,7 @@ class SettingsActivity : SidebarActivity() {
 
     private fun setViews() {
         themeSwitch = findViewById(R.id.switch_settings_theme)
+        logoutButton = findViewById(R.id.button_settings_logout)
         drawerLayout = findViewById(R.id.drawerlayout_settings)
         navigationView = findViewById(R.id.navigationview_settings)
         sidebarButton = findViewById(R.id.imagebutton_settings_sidebar)
@@ -86,6 +91,7 @@ class SettingsActivity : SidebarActivity() {
 
     private fun setListeners() {
         themeSwitch.setOnCheckedChangeListener { _, isChecked -> presenter.themeSwitchToggle(isChecked) }
+        logoutButton.setOnClickListener { presenter.logoutButtonClicked() }
     }
 
     fun setDarkTheme() {
@@ -102,5 +108,15 @@ class SettingsActivity : SidebarActivity() {
 
     fun setThemeSwitchStatus(checked: Boolean) {
         themeSwitch.isChecked = checked
+    }
+
+    fun displayToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    fun goToLogin() {
+        var intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

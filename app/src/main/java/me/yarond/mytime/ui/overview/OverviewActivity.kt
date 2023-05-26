@@ -31,7 +31,8 @@ class OverviewActivity : SidebarActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_overview)
         presenter = OverviewPresenter(this)
-        Repository.getInstance().write()
+        // TODO: remove this
+//         Repository.getInstance().write()
         setViews()
         setSideBar()
         setAdapters()

@@ -8,6 +8,8 @@ import me.yarond.mytime.model.Notifications
 
 class Repository {
 
+    private var email: String = Auth.getFirebaseAuth().currentUser?.email ?: ""
+
     interface OverviewEventsListener {
         fun onTodayEventsUpdate(events: ArrayList<Event>)
         fun onTomorrowEventsUpdate(events: ArrayList<Event>)
@@ -48,8 +50,14 @@ class Repository {
         }
     }
 
+    fun setEmail(email: String) {
+        this.email = email
+    }
+
     fun readSpecificDayEvents(day: Day) {
-        database.collection("events").document(day.value).collection("events")
+        if (email == "") return
+
+        database.collection("events").document(day.value).collection(email)
             .addSnapshotListener { snapshots, e ->
                 if (e != null) {
                     Log.w("MyTime Firebase", e)
@@ -69,8 +77,10 @@ class Repository {
     }
 
     fun readWeeklyEvents() {
+        if (email == "") return
+
         Day.values().forEach { day ->
-            database.collection("events").document(day.value).collection("events")
+            database.collection("events").document(day.value).collection(email)
                 .addSnapshotListener { snapshots, e ->
                     if (e != null) {
                         Log.w("MyTime Firebase", e)
@@ -94,27 +104,36 @@ class Repository {
         }
     }
 
-    fun write() {
+    fun write()
+    {
+        if (email == "") return
+
         Day.values().forEachIndexed { index, day ->
             val events = ArrayList<Event>()
             events.add(Event("Event $index", day, "12:00", "13:00", Notifications.HalfHourBefore, "Home", "Hello", true))
             events.add(Event("Event " + (index + 1), day, "13:00", "15:00", Notifications.ThreeHoursBefore, "School", "Hi", false))
             events.forEach {
                 val id = it.generateId()
-                database.collection("events").document(day.value).collection("events").document(id).set(it)
+                database.collection("events").document(day.value)
+                    .collection(email).document(id).set(it)
             }
         }
     }
 
     fun saveEvent(event: Event) {
+        if (email == "") return
+
         val id = event.generateId()
-        database.collection("events").document(event.day.value).collection("events").document(id).set(event)
+        database.collection("events").document(event.day.value).
+            collection(email).document(id).set(event)
             .addOnFailureListener { e ->
                 Log.w("FIREBASE", "Error writing document", e)
             }
     }
 
     fun deleteEvent(text: String, id: String) {
-        database.collection("events").document(text).collection("events").document(id).delete()
+        if (email == "") return
+        database.collection("events").document(text).
+            collection(email).document(id).delete()
     }
 }
