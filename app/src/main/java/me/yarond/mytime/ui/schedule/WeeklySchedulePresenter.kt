@@ -7,7 +7,7 @@ import me.yarond.mytime.ui.UtilPresenter
 
 class WeeklySchedulePresenter(private var view: WeeklyScheduleActivity) : Repository.WeeklyEventsListener {
 
-    fun start() {
+    fun init() {
         val repository = Repository.getInstance()
         repository.setWeeklyEventsListener(this)
         repository.readWeeklyEvents()

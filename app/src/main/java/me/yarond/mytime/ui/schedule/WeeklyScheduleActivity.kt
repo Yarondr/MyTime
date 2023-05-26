@@ -2,7 +2,6 @@ package me.yarond.mytime.ui.schedule
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -34,7 +33,7 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
         setSideBar()
         setButtons()
         setAdapters()
-        presenter.start()
+        presenter.init()
     }
 
     private fun setViews() {
@@ -51,8 +50,7 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
     }
 
     fun updateEvents(dayIndex: Int, events: ArrayList<Event>) {
-        var fragment = adapter.getFragment(dayIndex) as DayScheduleFragment
-        Log.d("TEST", fragment.toString())
+        val fragment = adapter.getFragment(dayIndex) as DayScheduleFragment
         fragment.updateEvents(events)
     }
 

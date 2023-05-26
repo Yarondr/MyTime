@@ -109,17 +109,12 @@ class Repository {
     fun saveEvent(event: Event) {
         val id = event.generateId()
         database.collection("events").document(event.day.value).collection("events").document(id).set(event)
-            .addOnSuccessListener {
-                Log.d("FIREBASE", "DocumentSnapshot successfully written!")
-            }
             .addOnFailureListener { e ->
                 Log.w("FIREBASE", "Error writing document", e)
             }
     }
 
     fun deleteEvent(text: String, id: String) {
-        Log.d("DELETE EVENT", text)
-        Log.d("DELETE EVENT", id)
         database.collection("events").document(text).collection("events").document(id).delete()
     }
 }

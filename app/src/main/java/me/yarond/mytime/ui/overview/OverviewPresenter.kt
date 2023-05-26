@@ -1,6 +1,5 @@
 package me.yarond.mytime.ui.overview
 
-import android.util.Log
 import me.yarond.mytime.Repository
 import me.yarond.mytime.Utils
 import me.yarond.mytime.model.Event
@@ -47,10 +46,6 @@ class OverviewPresenter(private var view: OverviewActivity) : Repository.Overvie
         events.forEach { event ->
             val eventEndHour = formatTime(event.endTime.split(":")[0])
             val eventEndMinute = formatTime(event.endTime.split(":")[1])
-            Log.d("TEST", "Event End Hour: $eventEndHour")
-            Log.d("TEST", "Event End Min: $eventEndMinute")
-            Log.d("TEST", "Current Hour: ${currentDate.hour}")
-            Log.d("TEST", "Current Min: ${currentDate.minute}")
             if (eventEndHour > currentDate.hour || eventEndHour == currentDate.hour && eventEndMinute >= currentDate.minute) {
                 pendingEvents.add(event)
             }
