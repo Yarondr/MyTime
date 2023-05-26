@@ -9,11 +9,11 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class OverviewPresenter(private var view: OverviewActivity) : Repository.EventsListener {
+class OverviewPresenter(private var view: OverviewActivity) : Repository.OverviewEventsListener {
 
     init {
         val repository = Repository.getInstance()
-        repository.setEventsListener(this)
+        repository.setOverviewEventsListener(this)
         repository.readSpecificDayEvents(Utils.getCurrentDay())
     }
 
@@ -59,5 +59,4 @@ class OverviewPresenter(private var view: OverviewActivity) : Repository.EventsL
     }
 
     override fun onTomorrowEventsUpdate(events: ArrayList<Event>) { }
-    override fun onWeeklyEventsUpdate(events: ArrayList<ArrayList<Event>>) {}
 }

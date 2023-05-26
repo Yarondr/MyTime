@@ -52,6 +52,14 @@ class DayScheduleFragment(private var events: ArrayList<Event>, private var day:
         return inflater.inflate(R.layout.fragment_day_schedule, container, false)
     }
 
+    fun updateEvents(events: ArrayList<Event>) {
+        if (view != null) {
+            eventsAdapter = PendingEventAdapter(events)
+            eventsRecyclerView.adapter = eventsAdapter
+        }
+        this.events = events
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of

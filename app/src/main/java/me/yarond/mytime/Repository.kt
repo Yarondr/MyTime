@@ -6,21 +6,34 @@ import com.google.firebase.firestore.FirebaseFirestore
 import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
 import me.yarond.mytime.model.Notifications
-import java.time.DayOfWeek
-import java.time.LocalDate
 
 class Repository {
 
-    interface EventsListener {
+    interface OverviewEventsListener {
         fun onTodayEventsUpdate(events: ArrayList<Event>)
         fun onTomorrowEventsUpdate(events: ArrayList<Event>)
-        fun onWeeklyEventsUpdate(events: ArrayList<ArrayList<Event>>)
     }
 
-    private lateinit var eventsListener: EventsListener
+    interface WeeklyEventsListener {
+        fun onSundayEventsUpdate(events: ArrayList<Event>)
+        fun onMondayEventsUpdate(events: ArrayList<Event>)
+        fun onTuesdayEventsUpdate(events: ArrayList<Event>)
+        fun onWednesdayEventsUpdate(events: ArrayList<Event>)
+        fun onThursdayEventsUpdate(events: ArrayList<Event>)
+        fun onFridayEventsUpdate(events: ArrayList<Event>)
+        fun onSaturdayEventsUpdate(events: ArrayList<Event>)
 
-    fun setEventsListener(eventsListener: EventsListener) {
-        this.eventsListener = eventsListener
+    }
+
+    private lateinit var overviewEventsListener: OverviewEventsListener
+    private lateinit var weeklyEventsListener: WeeklyEventsListener
+
+    fun setOverviewEventsListener(overviewEventsListener: OverviewEventsListener) {
+        this.overviewEventsListener = overviewEventsListener
+    }
+
+    fun setWeeklyEventsListener(weeklyEventsListener: WeeklyEventsListener) {
+        this.weeklyEventsListener = weeklyEventsListener
     }
 
     companion object {
@@ -49,8 +62,8 @@ class Repository {
                 })
 
                 when (day) {
-                    Utils.getCurrentDay() -> eventsListener.onTodayEventsUpdate(events)
-                    Utils.getTomorrowDay() -> eventsListener.onTomorrowEventsUpdate(events)
+                    Utils.getCurrentDay() -> overviewEventsListener.onTodayEventsUpdate(events)
+                    Utils.getTomorrowDay() -> overviewEventsListener.onTomorrowEventsUpdate(events)
                     else -> {}
                 }
             }
@@ -58,27 +71,26 @@ class Repository {
 
     fun readWeeklyEvents() {
         Day.values().forEach { day ->
-            database.collection("events")
+            database.collection("events").document(day.value).collection("events")
                 .addSnapshotListener { snapshots, e ->
                     if (e != null) {
                         Log.w("MyTime Firebase", e)
                         return@addSnapshotListener
                     }
 
-                    val weeklyEvents = ArrayList<ArrayList<Event>>()
+                    val events = ArrayList(snapshots!!.documents.map {
+                        it.toObject(Event::class.java)!!
+                    })
 
-                    for (document in snapshots!!.documents.sortedBy { day ->
-                        Day.values().find { it.value == day.id}
-                    }) {
-                        (document.get("events") as List<DocumentSnapshot>).map {  }
-                        weeklyEvents.add(
-                            ArrayList((document.get("events") as List<DocumentSnapshot>).map {
-                                it.toObject(Event::class.java)!!
-                            })
-                        )
+                    when (day) {
+                        Day.Sunday -> weeklyEventsListener.onSundayEventsUpdate(events)
+                        Day.Monday -> weeklyEventsListener.onMondayEventsUpdate(events)
+                        Day.Tuesday -> weeklyEventsListener.onTuesdayEventsUpdate(events)
+                        Day.Wednesday -> weeklyEventsListener.onWednesdayEventsUpdate(events)
+                        Day.Thursday -> weeklyEventsListener.onThursdayEventsUpdate(events)
+                        Day.Friday -> weeklyEventsListener.onFridayEventsUpdate(events)
+                        Day.Saturday -> weeklyEventsListener.onSaturdayEventsUpdate(events)
                     }
-
-                    eventsListener.onWeeklyEventsUpdate(weeklyEvents)
                 }
         }
     }

@@ -2,6 +2,7 @@ package me.yarond.mytime.ui.schedule
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -10,10 +11,11 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import me.yarond.mytime.R
 import me.yarond.mytime.model.Day
-import me.yarond.mytime.ui.settings.SettingsActivity
+import me.yarond.mytime.model.Event
 import me.yarond.mytime.ui.events.AddEventActivity
 import me.yarond.mytime.ui.fragmentTypes.SidebarFragmentActivity
 import me.yarond.mytime.ui.overview.OverviewActivity
+import me.yarond.mytime.ui.settings.SettingsActivity
 
 class WeeklyScheduleActivity : SidebarFragmentActivity() {
 
@@ -22,6 +24,7 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
     private lateinit var toggleSidebar: ActionBarDrawerToggle
     private lateinit var addEventButton: ImageButton
     private lateinit var presenter: WeeklySchedulePresenter
+    private lateinit var adapter: DaySchedulePagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,7 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
         setSideBar()
         setButtons()
         setAdapters()
+        presenter.start()
     }
 
     private fun setViews() {
@@ -46,9 +50,14 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
         addEventButton.setOnClickListener{ presenter.createNewEvent() }
     }
 
-    private fun setAdapters() {
-        val adapter = DaySchedulePagerAdapter(this)
+    fun updateEvents(dayIndex: Int, events: ArrayList<Event>) {
+        var fragment = adapter.getFragment(dayIndex) as DayScheduleFragment
+        Log.d("TEST", fragment.toString())
+        fragment.updateEvents(events)
+    }
 
+    private fun setAdapters() {
+        adapter = DaySchedulePagerAdapter(this)
         Day.values().iterator().forEach {
             adapter.addFragment(presenter.getDayScheduleFragment(it), it.shortName)
         }
