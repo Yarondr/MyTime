@@ -1,5 +1,6 @@
 package me.yarond.mytime.ui.overview
 
+import me.yarond.mytime.EventNotificationService
 import me.yarond.mytime.Repository
 import me.yarond.mytime.Utils
 import me.yarond.mytime.model.Event
@@ -32,20 +33,15 @@ class OverviewPresenter(private var view: OverviewActivity) : Repository.Overvie
         view.startActivity(view.getAddEventActivityIntent())
     }
 
-    private fun formatTime(time: String): Int {
-        if (time[0] == '0') {
-            return time[1].digitToInt()
-        }
-        return time.toInt()
-    }
-
     override fun onTodayEventsUpdate(events: ArrayList<Event>) {
+        EventNotificationService.getInstance().setTodayEvents(events)
+
         val pendingEvents = ArrayList<Event>()
         val currentDate = LocalDateTime.now()
 
         events.forEach { event ->
-            val eventEndHour = formatTime(event.endTime.split(":")[0])
-            val eventEndMinute = formatTime(event.endTime.split(":")[1])
+            val eventEndHour = Utils.formatTime(event.endTime.split(":")[0])
+            val eventEndMinute = Utils.formatTime(event.endTime.split(":")[1])
             if (eventEndHour > currentDate.hour || eventEndHour == currentDate.hour && eventEndMinute >= currentDate.minute) {
                 pendingEvents.add(event)
             }
@@ -53,5 +49,7 @@ class OverviewPresenter(private var view: OverviewActivity) : Repository.Overvie
         view.updateTodayEvents(pendingEvents)
     }
 
-    override fun onTomorrowEventsUpdate(events: ArrayList<Event>) { }
+    override fun onTomorrowEventsUpdate(events: ArrayList<Event>) {
+        EventNotificationService.getInstance().setTomorrowEvents(events)
+    }
 }

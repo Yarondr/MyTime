@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == 100) {
-            var signInAccountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
+            val signInAccountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
             presenter.handleLoginResult(signInAccountTask)
         }
     }
@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun goToOverview() {
-        var intent = Intent(this, OverviewActivity::class.java)
+        val intent = Intent(this, OverviewActivity::class.java)
         startActivity(intent)
     }
 

@@ -9,13 +9,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import me.yarond.mytime.EventNotificationService
 import me.yarond.mytime.R
-import me.yarond.mytime.Repository
 import me.yarond.mytime.model.Event
-import me.yarond.mytime.ui.events.AddEventActivity
-import me.yarond.mytime.ui.settings.SettingsActivity
-import me.yarond.mytime.ui.schedule.WeeklyScheduleActivity
 import me.yarond.mytime.ui.activityTypes.SidebarActivity
+import me.yarond.mytime.ui.events.AddEventActivity
+import me.yarond.mytime.ui.schedule.WeeklyScheduleActivity
+import me.yarond.mytime.ui.settings.SettingsActivity
 
 class OverviewActivity : SidebarActivity() {
 
@@ -32,11 +32,14 @@ class OverviewActivity : SidebarActivity() {
         setContentView(R.layout.activity_overview)
         presenter = OverviewPresenter(this)
         // TODO: remove this
-//         Repository.getInstance().write()
+        // Repository.getInstance().write()
         setViews()
         setSideBar()
         setAdapters()
         setListeners()
+
+        val serviceIntent = Intent(this, EventNotificationService.getInstance().javaClass)
+        startService(serviceIntent)
     }
 
     private fun setViews() {

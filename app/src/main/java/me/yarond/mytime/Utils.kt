@@ -31,5 +31,12 @@ class Utils {
                 Day.Saturday -> Day.Sunday
             }
         }
+
+        fun formatTime(time: String): Int {
+            if (time[0] == '0') {
+                return time[1].digitToInt()
+            }
+            return time.toInt()
+        }
     }
 }
