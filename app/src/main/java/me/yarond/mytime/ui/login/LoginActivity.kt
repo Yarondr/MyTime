@@ -1,10 +1,10 @@
 package me.yarond.mytime.ui.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import me.yarond.mytime.R
 import me.yarond.mytime.ui.overview.OverviewActivity
@@ -13,6 +13,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var presenter: LoginPresenter
     private lateinit var loginButton: Button
+    private lateinit var statusTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,11 +32,12 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun setViews() {
+    private fun setViews() {
         loginButton = findViewById(R.id.button_login_google_signin)
+        statusTextView = findViewById(R.id.textview_login_status)
     }
 
-    fun setListeners() {
+    private fun setListeners() {
         loginButton.setOnClickListener {
             presenter.loginClicked()
         }
@@ -46,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun displayToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    fun setStatus(message: String) {
+        statusTextView.text = message
     }
 }

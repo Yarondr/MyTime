@@ -70,6 +70,9 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="title_activity_login">LoginActivity</string>
-    <string name="login">Login</string>
+    <string name="login">Login:</string>
     <string name="logout">Logout</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="welcome">Welcome!</string>
 </resources>

@@ -5,8 +5,6 @@ import com.google.firebase.auth.FirebaseAuth
 
 class Auth {
 
-
-
     companion object {
         private var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
         private var googleSignInOptions: GoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
