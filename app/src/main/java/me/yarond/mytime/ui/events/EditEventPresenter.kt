@@ -4,6 +4,8 @@ import me.yarond.mytime.Repository
 import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
 import me.yarond.mytime.model.Notifications
+import java.time.Duration
+import java.time.LocalTime
 
 class EditEventPresenter(private var view: EditEventActivity) {
 
@@ -116,7 +118,15 @@ class EditEventPresenter(private var view: EditEventActivity) {
             view.setStatus("End time is not selected!")
             return false
         }
+        if (differenceBetweenTimes(startTime, endTime) <= 0) {
+            view.setStatus("Start time must be before end time!")
+            return false
+        }
         return true
+    }
+
+    private fun differenceBetweenTimes(time1: String, time2: String): Int {
+        return Duration.between(LocalTime.parse(time1), LocalTime.parse(time2)).seconds.toInt()
     }
 
     private fun createEvent(): Event {
