@@ -17,10 +17,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import me.yarond.mytime.R
 import me.yarond.mytime.model.Day
+import me.yarond.mytime.model.Event
 import me.yarond.mytime.model.Notifications
 import me.yarond.mytime.ui.activityTypes.DefaultActivity
 
-class AddEventActivity : DefaultActivity() {
+class EditEventActivity : DefaultActivity() {
     private lateinit var nameEditText: EditText
     private lateinit var daySelectorTextView: TextView
     private lateinit var startTimeTextView: TextView
@@ -36,30 +37,35 @@ class AddEventActivity : DefaultActivity() {
     private lateinit var dayDialog: Dialog
     private lateinit var notificationDialog: Dialog
 
-    private lateinit var presenter: AddEventPresenter
+    private lateinit var presenter: EditEventPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_event)
-        presenter = AddEventPresenter(this)
+        setContentView(R.layout.activity_edit_event)
+        presenter = EditEventPresenter(this)
         setViews()
         setListeners()
         createDialogs()
+
+        val serializedEvent = intent.getSerializableExtra("event")
+        if (serializedEvent != null) {
+            presenter.setEvent(serializedEvent as Event)
+        }
     }
 
     private fun setViews() {
-        nameEditText = findViewById(R.id.edittext_addevent_name)
-        daySelectorTextView = findViewById(R.id.textview_addevent_day)
-        startTimeTextView = findViewById(R.id.textview_addevent_start)
-        endTimeTextView = findViewById(R.id.textview_addevent_end)
-        notificationSelectorTextView = findViewById(R.id.textview_addevent_notif)
-        locationEditText = findViewById(R.id.edittext_addevent_location)
-        notesEditText = findViewById(R.id.edittext_addevent_notes)
-        onceCheckBox = findViewById(R.id.checkbox_addevent_once)
-        statusTextView = findViewById(R.id.textview_addevent_status)
+        nameEditText = findViewById(R.id.edittext_editevent_name)
+        daySelectorTextView = findViewById(R.id.textview_editevent_day)
+        startTimeTextView = findViewById(R.id.textview_editevent_start)
+        endTimeTextView = findViewById(R.id.textview_editevent_end)
+        notificationSelectorTextView = findViewById(R.id.textview_editevent_notif)
+        locationEditText = findViewById(R.id.edittext_editevent_location)
+        notesEditText = findViewById(R.id.edittext_editevent_notes)
+        onceCheckBox = findViewById(R.id.checkbox_editevent_once)
+        statusTextView = findViewById(R.id.textview_editevent_status)
 
-        backImageView = findViewById(R.id.imageview_addevent_back)
-        saveImageButton = findViewById(R.id.imageButton_addevent_save)
+        backImageView = findViewById(R.id.imageview_editevent_back)
+        saveImageButton = findViewById(R.id.imageButton_editevent_save)
     }
 
     private fun setListeners() {
@@ -177,5 +183,41 @@ class AddEventActivity : DefaultActivity() {
 
     fun setStatus(status: String) {
         statusTextView.text = status
+    }
+
+    fun setEventName(name: String) {
+        nameEditText.setText(name)
+    }
+
+    fun setEventDay(day: String) {
+        daySelectorTextView.text = day
+    }
+
+    fun setEventStartTime(time: String) {
+        startTimeTextView.text = time
+    }
+
+    fun setEventEndTime(time: String) {
+        endTimeTextView.text = time
+    }
+
+    fun setEventNotification(notification: String) {
+        notificationSelectorTextView.text = notification
+    }
+
+    fun setEventLocation(location: String) {
+        locationEditText.setText(location)
+    }
+
+    fun setEventNotes(notes: String) {
+        notesEditText.setText(notes)
+    }
+
+    fun setEventToOneTime() {
+        onceCheckBox.isChecked = true
+    }
+
+    fun setEventToRecurring() {
+        onceCheckBox.isChecked = false
     }
 }

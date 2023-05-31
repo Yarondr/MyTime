@@ -5,7 +5,7 @@ import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
 import me.yarond.mytime.model.Notifications
 
-class AddEventPresenter(private var view: AddEventActivity) {
+class EditEventPresenter(private var view: EditEventActivity) {
 
     private var name: String = ""
     private var day: Day? = null
@@ -17,6 +17,40 @@ class AddEventPresenter(private var view: AddEventActivity) {
     private var once: Boolean = false
 
 
+    fun setEvent(event: Event) {
+        view.setEventName(event.name)
+        view.setEventDay(event.day.value)
+        view.setEventStartTime("Start Time: " + event.startTime)
+        view.setEventEndTime("End Time: " + event.endTime)
+        view.setEventNotification(event.notification.value)
+
+        if (event.location.isEmpty()) {
+            view.setEventLocation("None")
+        } else {
+            view.setEventLocation(event.location)
+        }
+
+        if (event.notes.isEmpty()) {
+            view.setEventNotes("None")
+        } else {
+            view.setEventNotes(event.notes)
+        }
+
+        if (event.once) {
+            view.setEventToOneTime()
+        } else {
+            view.setEventToRecurring()
+        }
+
+        name = event.name
+        day = event.day
+        startTime = event.startTime
+        endTime = event.endTime
+        notification = event.notification
+        location = event.location
+        notes = event.notes
+        once = event.once
+    }
     fun selectDay() {
         view.showDayDialog()
     }

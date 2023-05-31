@@ -13,7 +13,7 @@ import me.yarond.mytime.EventNotificationService
 import me.yarond.mytime.R
 import me.yarond.mytime.model.Event
 import me.yarond.mytime.ui.activityTypes.SidebarActivity
-import me.yarond.mytime.ui.events.AddEventActivity
+import me.yarond.mytime.ui.events.EditEventActivity
 import me.yarond.mytime.ui.schedule.WeeklyScheduleActivity
 import me.yarond.mytime.ui.settings.SettingsActivity
 
@@ -112,7 +112,7 @@ class OverviewActivity : SidebarActivity() {
         addImageButton.setOnClickListener { presenter.createNewEvent() }
     }
 
-    fun getAddEventActivityIntent(): Intent {
-        return Intent(this, AddEventActivity::class.java)
+    fun getEditEventActivityIntent(): Intent {
+        return Intent(this, EditEventActivity::class.java)
     }
 }

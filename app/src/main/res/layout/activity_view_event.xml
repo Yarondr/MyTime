@@ -203,8 +203,8 @@
 
     <ImageButton
         android:id="@+id/imagebutton_viewevent_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@android:color/transparent"
@@ -212,6 +212,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/delete_icon"
         android:tint="@color/error"
+        android:scaleType="fitXY"
         android:contentDescription="@string/delete_event" />
+
+    <ImageButton
+        android:id="@+id/imagebutton_viewevent_edit"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/delete_event"
+        android:src="@drawable/edit_icon"
+        android:tint="@color/error"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

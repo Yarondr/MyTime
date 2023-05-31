@@ -1,6 +1,7 @@
 package me.yarond.mytime.ui.events
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
@@ -22,10 +23,13 @@ class ViewEventActivity : DefaultActivity() {
     private lateinit var eventNotesTextView: TextView
     private lateinit var eventOneTimeImageView: ImageView
     private lateinit var deleteImageView: ImageView
+    private lateinit var editImageView: ImageView
     private lateinit var backImageView: ImageView
 
     private lateinit var id: String
     private lateinit var presenter: ViewEventPresenter
+
+    private lateinit var event: Event
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +37,8 @@ class ViewEventActivity : DefaultActivity() {
         presenter = ViewEventPresenter(this)
         setViews()
         setListeners()
-        presenter.setEvent(intent.getSerializableExtra("event") as Event)
+        event = intent.getSerializableExtra("event") as Event
+        presenter.setEvent(event)
     }
 
     private fun setViews() {
@@ -47,6 +52,7 @@ class ViewEventActivity : DefaultActivity() {
         eventOneTimeImageView = findViewById(R.id.imageview_viewevent_onetime)
         backImageView = findViewById(R.id.imageview_viewevent_back)
         deleteImageView = findViewById(R.id.imagebutton_viewevent_delete)
+        editImageView = findViewById(R.id.imagebutton_viewevent_edit)
     }
 
     private fun setListeners() {
@@ -62,6 +68,14 @@ class ViewEventActivity : DefaultActivity() {
                 .setNegativeButton(R.string.no) { dialog, whichButton -> }
                 .show()
         }
+        editImageView.setOnClickListener { presenter.editClicked() }
+    }
+
+    fun showEditEventActivity() {
+        val intent = Intent(this, EditEventActivity::class.java)
+        intent.putExtra("event", event)
+        startActivity(intent)
+        finish()
     }
 
     fun setEventName(name: String) {

@@ -11,7 +11,7 @@ import com.google.android.material.tabs.TabLayout
 import me.yarond.mytime.R
 import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
-import me.yarond.mytime.ui.events.AddEventActivity
+import me.yarond.mytime.ui.events.EditEventActivity
 import me.yarond.mytime.ui.fragmentTypes.SidebarFragmentActivity
 import me.yarond.mytime.ui.overview.OverviewActivity
 import me.yarond.mytime.ui.settings.SettingsActivity
@@ -21,7 +21,7 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
     private lateinit var toggleSidebar: ActionBarDrawerToggle
-    private lateinit var addEventButton: ImageButton
+    private lateinit var editEventButton: ImageButton
     private lateinit var presenter: WeeklySchedulePresenter
     private lateinit var adapter: DaySchedulePagerAdapter
 
@@ -42,11 +42,11 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
         drawerLayout = findViewById(R.id.drawerlayout_weeklyschedule)
         navigationView = findViewById(R.id.navigationview_weeklyschedule)
         sidebarButton = findViewById(R.id.imagebutton_weeklyschedule_sidebar)
-        addEventButton = findViewById(R.id.imagebutton_weeklyschedule_add)
+        editEventButton = findViewById(R.id.imagebutton_weeklyschedule_add)
     }
 
     private fun setButtons() {
-        addEventButton.setOnClickListener{ presenter.createNewEvent() }
+        editEventButton.setOnClickListener{ presenter.createNewEvent() }
     }
 
     fun updateEvents(dayIndex: Int, events: ArrayList<Event>) {
@@ -131,7 +131,7 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
         this.actionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    fun getAddEventActivityIntent(): Intent {
-        return Intent(this, AddEventActivity::class.java)
+    fun getEditEventActivityIntent(): Intent {
+        return Intent(this, EditEventActivity::class.java)
     }
 }

@@ -4,38 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.events.AddEventActivity"
+    tools:context=".ui.events.EditEventActivity"
     tools:ignore="UseAppTint">
 
     <ImageView
-        android:id="@+id/imageview_addevent_back"
+        android:id="@+id/imageview_editevent_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:contentDescription="@string/addevent_title"
-        app:layout_constraintBottom_toBottomOf="@+id/textview_addevent_title"
-        app:layout_constraintEnd_toStartOf="@+id/textview_addevent_title"
+        android:contentDescription="@string/editevent_title"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_editevent_title"
+        app:layout_constraintEnd_toStartOf="@+id/textview_editevent_title"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textview_addevent_title"
+        app:layout_constraintTop_toTopOf="@+id/textview_editevent_title"
         android:src="@drawable/arrow_back_icon"
         android:tint="@color/secondary" />
 
     <TextView
-        android:id="@+id/textview_addevent_title"
+        android:id="@+id/textview_editevent_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/quicksand_bold"
-        android:text="@string/addevent_title"
+        android:text="@string/editevent_title"
         android:textColor="@color/primary"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/view_addevent_header_line"
+        android:id="@+id/view_editevent_header_line"
         android:layout_width="406dp"
         android:layout_height="1dp"
         android:layout_marginTop="85dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/checkbox_addevent_once"
+        android:id="@+id/checkbox_editevent_once"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -53,173 +53,173 @@
         android:text="@string/on_time_event"
         android:textColor="@color/on_background"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/edittext_addevent_notes"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_addevent_notes" />
+        app:layout_constraintStart_toStartOf="@+id/edittext_editevent_notes"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_editevent_notes" />
 
     <EditText
-        android:id="@+id/edittext_addevent_notes"
+        android:id="@+id/edittext_editevent_notes"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:hint="@string/addevent_no_notes"
+        android:hint="@string/editevent_no_notes"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="@color/on_background"
-        app:layout_constraintStart_toStartOf="@+id/edittext_addevent_location"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_addevent_location" />
+        app:layout_constraintStart_toStartOf="@+id/edittext_editevent_location"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_editevent_location" />
 
     <TextView
-        android:id="@+id/textview_addevent_day"
+        android:id="@+id/textview_editevent_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/quicksand_medium"
-        android:text="@string/addevent_noday"
+        android:text="@string/editevent_noday"
         android:textColor="@color/on_background"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/edittext_addevent_name"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_addevent_name" />
+        app:layout_constraintStart_toStartOf="@+id/edittext_editevent_name"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_editevent_name" />
 
     <TextView
-        android:id="@+id/textview_addevent_start"
+        android:id="@+id/textview_editevent_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/quicksand_medium"
-        android:text="@string/addevent_no_start_time"
+        android:text="@string/editevent_no_start_time"
         android:textColor="@color/on_background"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textview_addevent_day"
-        app:layout_constraintTop_toBottomOf="@+id/textview_addevent_day" />
+        app:layout_constraintStart_toStartOf="@+id/textview_editevent_day"
+        app:layout_constraintTop_toBottomOf="@+id/textview_editevent_day" />
 
     <TextView
-        android:id="@+id/textview_addevent_end"
+        android:id="@+id/textview_editevent_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/quicksand_medium"
-        android:text="@string/addevent_no_end_time"
+        android:text="@string/editevent_no_end_time"
         android:textColor="@color/on_background"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textview_addevent_start"
-        app:layout_constraintTop_toBottomOf="@+id/textview_addevent_start" />
+        app:layout_constraintStart_toStartOf="@+id/textview_editevent_start"
+        app:layout_constraintTop_toBottomOf="@+id/textview_editevent_start" />
 
     <EditText
-        android:id="@+id/edittext_addevent_name"
+        android:id="@+id/edittext_editevent_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="@string/addevent_eventname"
+        android:hint="@string/editevent_eventname"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="@color/on_background"
-        app:layout_constraintStart_toEndOf="@+id/imageview_addevent_editname"
-        app:layout_constraintTop_toBottomOf="@+id/view_addevent_header_line" />
+        app:layout_constraintStart_toEndOf="@+id/imageview_editevent_editname"
+        app:layout_constraintTop_toBottomOf="@+id/view_editevent_header_line" />
 
     <TextView
-        android:id="@+id/textview_addevent_notif"
+        android:id="@+id/textview_editevent_notif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/quicksand_medium"
-        android:text="@string/addevent_no_notification"
+        android:text="@string/editevent_no_notification"
         android:textColor="@color/on_background"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/textview_addevent_end"
-        app:layout_constraintTop_toBottomOf="@+id/textview_addevent_end" />
+        app:layout_constraintStart_toStartOf="@+id/textview_editevent_end"
+        app:layout_constraintTop_toBottomOf="@+id/textview_editevent_end" />
 
     <ImageView
-        android:id="@+id/imageview_addevent_editname"
+        android:id="@+id/imageview_editevent_editname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/edittext_addevent_name"
-        app:layout_constraintStart_toStartOf="@+id/imageview_addevent_back"
-        app:layout_constraintTop_toTopOf="@+id/edittext_addevent_name"
+        app:layout_constraintBottom_toBottomOf="@+id/edittext_editevent_name"
+        app:layout_constraintStart_toStartOf="@+id/imageview_editevent_back"
+        app:layout_constraintTop_toTopOf="@+id/edittext_editevent_name"
         app:srcCompat="@drawable/edit_icon"
         android:tint="@color/secondary" />
 
     <ImageView
-        android:id="@+id/imageview_addevent_day"
+        android:id="@+id/imageview_editevent_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textview_addevent_day"
-        app:layout_constraintStart_toStartOf="@+id/imageview_addevent_editname"
-        app:layout_constraintTop_toTopOf="@+id/textview_addevent_day"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_editevent_day"
+        app:layout_constraintStart_toStartOf="@+id/imageview_editevent_editname"
+        app:layout_constraintTop_toTopOf="@+id/textview_editevent_day"
         app:srcCompat="@drawable/schedule_icon"
         android:tint="@color/secondary" />
 
     <ImageView
-        android:id="@+id/imageview_addevent_location"
+        android:id="@+id/imageview_editevent_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/edittext_addevent_location"
-        app:layout_constraintStart_toStartOf="@+id/imageview_addevent_day"
-        app:layout_constraintTop_toTopOf="@+id/edittext_addevent_location"
+        app:layout_constraintBottom_toBottomOf="@+id/edittext_editevent_location"
+        app:layout_constraintStart_toStartOf="@+id/imageview_editevent_day"
+        app:layout_constraintTop_toTopOf="@+id/edittext_editevent_location"
         app:srcCompat="@drawable/location_icon"
         android:tint="@color/secondary" />
 
     <ImageView
-        android:id="@+id/imageview_addevent_notification"
+        android:id="@+id/imageview_editevent_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textview_addevent_notif"
-        app:layout_constraintStart_toStartOf="@+id/imageview_addevent_location"
-        app:layout_constraintTop_toTopOf="@+id/textview_addevent_notif"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_editevent_notif"
+        app:layout_constraintStart_toStartOf="@+id/imageview_editevent_location"
+        app:layout_constraintTop_toTopOf="@+id/textview_editevent_notif"
         app:srcCompat="@drawable/notification_icon"
         android:tint="@color/secondary" />
 
     <ImageView
-        android:id="@+id/imageview_addevent_notes"
+        android:id="@+id/imageview_editevent_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/edittext_addevent_notes"
-        app:layout_constraintStart_toStartOf="@+id/imageview_addevent_notification"
-        app:layout_constraintTop_toTopOf="@+id/edittext_addevent_notes"
+        app:layout_constraintBottom_toBottomOf="@+id/edittext_editevent_notes"
+        app:layout_constraintStart_toStartOf="@+id/imageview_editevent_notification"
+        app:layout_constraintTop_toTopOf="@+id/edittext_editevent_notes"
         app:srcCompat="@drawable/edit_note_icon"
         android:tint="@color/secondary" />
 
     <ImageView
-        android:id="@+id/imageview_addevent_once"
+        android:id="@+id/imageview_editevent_once"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/checkbox_addevent_once"
-        app:layout_constraintStart_toStartOf="@+id/imageview_addevent_notification"
-        app:layout_constraintTop_toTopOf="@+id/checkbox_addevent_once"
+        app:layout_constraintBottom_toBottomOf="@+id/checkbox_editevent_once"
+        app:layout_constraintStart_toStartOf="@+id/imageview_editevent_notification"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_editevent_once"
         app:srcCompat="@drawable/event_icon"
         android:tint="@color/secondary" />
 
     <ImageButton
-        android:id="@+id/imageButton_addevent_save"
+        android:id="@+id/imageButton_editevent_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@android:color/transparent"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textview_addevent_title"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_editevent_title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textview_addevent_title"
+        app:layout_constraintTop_toTopOf="@+id/textview_editevent_title"
         app:srcCompat="@drawable/save_icon"
         android:tint="@color/secondary" />
 
     <EditText
-        android:id="@+id/edittext_addevent_location"
+        android:id="@+id/edittext_editevent_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:hint="@string/addevent_no_location"
+        android:hint="@string/editevent_no_location"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColor="@color/on_background"
-        app:layout_constraintStart_toStartOf="@+id/textview_addevent_notif"
-        app:layout_constraintTop_toBottomOf="@+id/textview_addevent_notif" />
+        app:layout_constraintStart_toStartOf="@+id/textview_editevent_notif"
+        app:layout_constraintTop_toBottomOf="@+id/textview_editevent_notif" />
 
     <TextView
-        android:id="@+id/textview_addevent_status"
+        android:id="@+id/textview_editevent_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/quicksand_medium"
@@ -228,6 +228,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_addevent_once" />
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_editevent_once" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

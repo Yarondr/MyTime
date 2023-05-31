@@ -30,7 +30,7 @@ class OverviewPresenter(private var view: OverviewActivity) : Repository.Overvie
     }
 
     fun createNewEvent() {
-        view.startActivity(view.getAddEventActivityIntent())
+        view.startActivity(view.getEditEventActivityIntent())
     }
 
     override fun onTodayEventsUpdate(events: ArrayList<Event>) {

@@ -26,7 +26,7 @@ class WeeklySchedulePresenter(private var view: WeeklyScheduleActivity) : Reposi
     }
 
     fun createNewEvent() {
-        view.startActivity(view.getAddEventActivityIntent())
+        view.startActivity(view.getEditEventActivityIntent())
     }
 
     override fun onSundayEventsUpdate(events: ArrayList<Event>) {

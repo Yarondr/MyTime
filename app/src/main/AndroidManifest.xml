@@ -42,7 +42,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.events.AddEventActivity"
+            android:name=".ui.events.EditEventActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -41,4 +41,8 @@ class ViewEventPresenter(private var view: ViewEventActivity) {
         repository.deleteEvent(day, id)
         view.finish()
     }
+
+    fun editClicked() {
+        view.showEditEventActivity()
+    }
 }

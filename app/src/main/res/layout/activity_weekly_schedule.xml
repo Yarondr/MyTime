@@ -124,7 +124,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:src="@drawable/add_circle_icon"
                 android:tint="@color/primary"
-                android:contentDescription="@string/addevent" />
+                android:contentDescription="@string/editevent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.navigation.NavigationView
