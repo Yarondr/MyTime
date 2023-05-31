@@ -1,6 +1,5 @@
 package me.yarond.mytime.ui.events
 
-import android.util.Log
 import me.yarond.mytime.Repository
 import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
@@ -8,13 +7,13 @@ import me.yarond.mytime.model.Notifications
 
 class AddEventPresenter(private var view: AddEventActivity) {
 
-    private lateinit var name: String
-    private lateinit var day: Day
-    private lateinit var startTime: String
-    private lateinit var endTime: String
-    private lateinit var notification: Notifications
-    private lateinit var location: String
-    private lateinit var notes: String
+    private var name: String = ""
+    private var day: Day? = null
+    private var startTime: String = ""
+    private var endTime: String = ""
+    private var notification: Notifications? = null
+    private var location: String = ""
+    private var notes: String = ""
     private var once: Boolean = false
 
 
@@ -58,14 +57,36 @@ class AddEventPresenter(private var view: AddEventActivity) {
     }
 
     fun saveEvent() {
+        if (!validateEvent()) return
+
         val event = createEvent()
         val repository = Repository.getInstance()
         repository.saveEvent(event)
         view.finish()
     }
 
+    private fun validateEvent(): Boolean {
+        if (name.isEmpty()) {
+            view.setStatus("Name is empty!")
+            return false
+        }
+        if (day == null) {
+            view.setStatus("Day is not selected!")
+            return false
+        }
+        if (startTime.isEmpty()) {
+            view.setStatus("Start time is not selected!")
+            return false
+        }
+        if (endTime.isEmpty()) {
+            view.setStatus("End time is not selected!")
+            return false
+        }
+        return true
+    }
+
     private fun createEvent(): Event {
-        return Event(name, day, startTime, endTime, notification, location, notes, once)
+        return Event(name, day!!, startTime, endTime, notification!!, location, notes, once)
     }
 
     fun setSelectedDay(day: String) {

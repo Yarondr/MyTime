@@ -16,8 +16,19 @@ class ViewEventPresenter(private var view: ViewEventActivity) {
         view.setEventStartTime("Start Time: " + event.startTime)
         view.setEventEndTime("End Time: " + event.endTime)
         view.setEventNotification(event.notification.value)
-        view.setEventLocation(event.location)
-        view.setEventNotes(event.notes)
+
+        if (event.location.isEmpty()) {
+            view.setEventLocation("None")
+        } else {
+            view.setEventLocation(event.location)
+        }
+
+        if (event.notes.isEmpty()) {
+            view.setEventNotes("None")
+        } else {
+            view.setEventNotes(event.notes)
+        }
+
         if (event.once) {
             view.setEventToOneTime()
         } else {
@@ -26,7 +37,7 @@ class ViewEventPresenter(private var view: ViewEventActivity) {
     }
 
     fun onDeleteConfirm(day: String, id: String) {
-        var repository = Repository.getInstance()
+        val repository = Repository.getInstance()
         repository.deleteEvent(day, id)
         view.finish()
     }

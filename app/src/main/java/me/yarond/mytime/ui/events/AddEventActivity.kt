@@ -29,6 +29,7 @@ class AddEventActivity : DefaultActivity() {
     private lateinit var locationEditText: EditText
     private lateinit var notesEditText: EditText
     private lateinit var onceCheckBox: CheckBox
+    private lateinit var statusTextView: TextView
 
     private lateinit var backImageView: ImageView
     private lateinit var saveImageButton: ImageButton
@@ -55,6 +56,7 @@ class AddEventActivity : DefaultActivity() {
         locationEditText = findViewById(R.id.edittext_addevent_location)
         notesEditText = findViewById(R.id.edittext_addevent_notes)
         onceCheckBox = findViewById(R.id.checkbox_addevent_once)
+        statusTextView = findViewById(R.id.textview_addevent_status)
 
         backImageView = findViewById(R.id.imageview_addevent_back)
         saveImageButton = findViewById(R.id.imageButton_addevent_save)
@@ -171,5 +173,9 @@ class AddEventActivity : DefaultActivity() {
 
     fun showNotificationDialog() {
         notificationDialog.show()
+    }
+
+    fun setStatus(status: String) {
+        statusTextView.text = status
     }
 }
