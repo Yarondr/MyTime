@@ -92,11 +92,13 @@ class EditEventPresenter(private var view: EditEventActivity) {
         view.finish()
     }
 
-    fun saveEvent() {
+    fun saveEvent(oldEvent: Event?) {
         if (!validateEvent()) return
 
         val event = createEvent()
         val repository = Repository.getInstance()
+
+        if (oldEvent != null)  repository.deleteEvent(oldEvent.day.value, oldEvent.generateId())
         repository.saveEvent(event)
         view.finish()
     }

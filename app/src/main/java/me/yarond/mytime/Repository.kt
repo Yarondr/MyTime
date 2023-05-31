@@ -131,9 +131,9 @@ class Repository {
             }
     }
 
-    fun deleteEvent(text: String, id: String) {
+    fun deleteEvent(day: String, id: String) {
         if (email == "") return
-        database.collection("events").document(text).
+        database.collection("events").document(day).
             collection(email).document(id).delete()
     }
 }

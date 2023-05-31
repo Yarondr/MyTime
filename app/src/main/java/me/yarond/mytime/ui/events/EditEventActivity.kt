@@ -39,6 +39,8 @@ class EditEventActivity : DefaultActivity() {
 
     private lateinit var presenter: EditEventPresenter
 
+    private var oldEvent: Event? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_event)
@@ -49,7 +51,8 @@ class EditEventActivity : DefaultActivity() {
 
         val serializedEvent = intent.getSerializableExtra("event")
         if (serializedEvent != null) {
-            presenter.setEvent(serializedEvent as Event)
+            oldEvent = serializedEvent as Event
+            presenter.setEvent(oldEvent!!)
         }
     }
 
@@ -70,7 +73,7 @@ class EditEventActivity : DefaultActivity() {
 
     private fun setListeners() {
         backImageView.setOnClickListener { presenter.backClicked() }
-        saveImageButton.setOnClickListener { presenter.saveEvent() }
+        saveImageButton.setOnClickListener { presenter.saveEvent(oldEvent) }
         nameEditText.doOnTextChanged { text, _, _, _ -> presenter.updateName(text.toString()) }
         daySelectorTextView.setOnClickListener { presenter.selectDay() }
         notificationSelectorTextView.setOnClickListener { presenter.selectNotificationOption() }
