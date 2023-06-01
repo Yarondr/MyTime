@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>me.yarond.mytime.Repository</OriginalElement>
+  <nodes>
+    <node x="556.2721647277135" y="644.9747243205694">me.yarond.mytime.Repository.OverviewEventsListener</node>
+    <node x="77.89559925093613" y="-317.541272287035">me.yarond.mytime.EventNotificationService.Companion</node>
+    <node x="268.0" y="-162.54127228703499">me.yarond.mytime.ui.UtilPresenter</node>
+    <node x="81.0" y="481.0562460462174">me.yarond.mytime.ui.login.LoginActivity</node>
+    <node x="803.9935803441379" y="644.9747243205694">me.yarond.mytime.Repository.WeeklyEventsListener</node>
+    <node x="467.8590823970038" y="-400.541272287035">me.yarond.mytime.ui.schedule.DaySchedulePagerAdapter</node>
+    <node x="447.0" y="-83.54127228703499">me.yarond.mytime.Utils.Companion</node>
+    <node x="303.4542483897884" y="481.0562460462174">me.yarond.mytime.ui.schedule.WeeklyScheduleActivity</node>
+    <node x="571.7721647277135" y="569.7315074610203">me.yarond.mytime.ui.events.EditEventPresenter</node>
+    <node x="571.7721647277135" y="327.15179119836523">me.yarond.mytime.ui.Sidebar</node>
+    <node x="791.0" y="-162.54127228703499">me.yarond.mytime.model.HourPickerType</node>
+    <node x="719.5601030082178" y="785.4273062181371">me.yarond.mytime.Repository.Companion</node>
+    <node x="731.0900810656385" y="410.16527691265094">me.yarond.mytime.ui.activityTypes.SidebarActivity</node>
+    <node x="731.0900810656385" y="327.15179119836523">me.yarond.mytime.ui.activityTypes.DefaultActivity</node>
+    <node x="300.45424838978846" y="327.15179119836523">me.yarond.mytime.ui.fragmentTypes.SidebarFragmentActivity</node>
+    <node x="-112.60440074906387" y="-400.541272287035">me.yarond.mytime.ui.overview.PendingEventAdapter.ViewHolder</node>
+    <node x="81.0" y="569.7315074610203">me.yarond.mytime.ui.login.LoginPresenter</node>
+    <node x="1294.9007490636704" y="569.7315074610203">me.yarond.mytime.ui.overview.OverviewPresenter</node>
+    <node x="814.4935803441379" y="569.7315074610203">me.yarond.mytime.ui.events.ViewEventPresenter</node>
+    <node x="571.7721647277135" y="481.05624604621744">me.yarond.mytime.ui.events.EditEventActivity</node>
+    <node x="1075.2149959605622" y="469.2396271350426">me.yarond.mytime.ui.settings.SettingsActivity</node>
+    <node x="231.77059925093613" y="-576.541272287035">me.yarond.mytime.model.Notifications</node>
+    <node x="271.5" y="-83.54127228703499">me.yarond.mytime.ui.UtilPresenter.Companion</node>
+    <node x="719.5601030082178" y="742.6232091690542">me.yarond.mytime.Repository</node>
+    <node x="35.39559925093613" y="-400.541272287035">me.yarond.mytime.EventNotificationService</node>
+    <node x="283.0507491112892" y="569.7315074610203">me.yarond.mytime.ui.schedule.WeeklySchedulePresenter</node>
+    <node x="471.0" y="-162.54127228703499">me.yarond.mytime.Utils</node>
+    <node x="803.9935803441379" y="469.2396271350426">me.yarond.mytime.ui.events.ViewEventActivity</node>
+    <node x="1310.9007490636704" y="488.44163286570165">me.yarond.mytime.ui.overview.OverviewActivity</node>
+    <node x="619.0" y="-83.54127228703499">me.yarond.mytime.Auth.Companion</node>
+    <node x="1063.2149959605622" y="569.7315074610203">me.yarond.mytime.ui.settings.SettingsPresenter</node>
+    <node x="642.0" y="-162.54127228703499">me.yarond.mytime.Auth</node>
+    <node x="-133.0" y="-83.54127228703499">me.yarond.mytime.ui.schedule.DayScheduleFragment.Companion</node>
+    <node x="76.47893258426961" y="-493.541272287035">me.yarond.mytime.model.Event</node>
+    <node x="-158.5" y="-493.541272287035">me.yarond.mytime.ui.overview.PendingEventAdapter</node>
+    <node x="81.47893258426961" y="-576.541272287035">me.yarond.mytime.model.Day</node>
+    <node x="-169.0" y="-162.54127228703499">me.yarond.mytime.ui.schedule.DayScheduleFragment</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="me.yarond.mytime.Utils.Companion" target="me.yarond.mytime.Utils" relationship="INNER_CLASS">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.events.ViewEventActivity" target="me.yarond.mytime.ui.activityTypes.DefaultActivity" relationship="GENERALIZATION">
+      <point x="11.096419655862178" y="-14.499627135042601" />
+      <point x="898.59" y="381.5" />
+      <point x="711.0" y="381.5" />
+      <point x="711.0" y="341.652" />
+      <point x="-74.00008106563848" y="2.0880163475567315E-4" />
+    </edge>
+    <edge source="me.yarond.mytime.EventNotificationService.Companion" target="me.yarond.mytime.EventNotificationService" relationship="INNER_CLASS">
+      <point x="-14.999599250936143" y="-14.5" />
+      <point x="-14.999599250936143" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.settings.SettingsPresenter" target="me.yarond.mytime.ui.settings.SettingsActivity" relationship="TO_ONE">
+      <point x="15.0" y="-14.5" />
+      <point x="9.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.settings.SettingsActivity" target="me.yarond.mytime.ui.settings.SettingsPresenter" relationship="TO_ONE">
+      <point x="-6.0" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.overview.PendingEventAdapter.ViewHolder" target="me.yarond.mytime.model.Event" relationship="TO_ONE">
+      <point x="4.007490638713307E-4" y="14.500272287034988" />
+      <point x="-48.604" y="-344.0" />
+      <point x="429.0" y="-344.0" />
+      <point x="429.0" y="-479.041" />
+      <point x="43.0000674157304" y="2.7228703498849427E-4" />
+    </edge>
+    <edge source="me.yarond.mytime.EventNotificationService" target="me.yarond.mytime.model.Event" relationship="TO_MANY">
+      <point x="4.0074906385711984E-4" y="14.500272287034988" />
+      <point x="141.396" y="-344.0" />
+      <point x="429.0" y="-344.0" />
+      <point x="429.0" y="-479.041" />
+      <point x="43.0000674157304" y="2.7228703498849427E-4" />
+    </edge>
+    <edge source="me.yarond.mytime.Repository" target="me.yarond.mytime.Repository.OverviewEventsListener" relationship="TO_ONE">
+      <point x="-45.28810300821772" y="-14.5" />
+      <point x="76.49983527228653" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.events.EditEventPresenter" target="me.yarond.mytime.model.Notifications" relationship="TO_ONE">
+      <point x="-1.6472771346798254E-4" y="14.500492538979643" />
+      <point x="658.272" y="616.232" />
+      <point x="1027.494" y="616.232" />
+      <point x="1027.494" y="-432.041" />
+      <point x="476.5" y="-432.041" />
+      <point x="476.5" y="-499.0" />
+      <point x="299.271" y="-499.0" />
+      <point x="4.0074906388554155E-4" y="14.500272287034932" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.events.EditEventActivity" target="me.yarond.mytime.model.Event" relationship="TO_ONE">
+      <point x="37.99983527228653" y="-14.500246046217455" />
+      <point x="690.272" y="142.959" />
+      <point x="429.0" y="142.959" />
+      <point x="429.0" y="-479.041" />
+      <point x="43.0000674157304" y="2.7228703498849427E-4" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.events.EditEventActivity" target="me.yarond.mytime.ui.activityTypes.DefaultActivity" relationship="GENERALIZATION">
+      <point x="-1.6472771346798254E-4" y="-14.500246046217455" />
+      <point x="652.272" y="381.5" />
+      <point x="711.0" y="381.5" />
+      <point x="711.0" y="341.652" />
+      <point x="-74.00008106563848" y="2.0880163475567315E-4" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.schedule.DayScheduleFragment.Companion" target="me.yarond.mytime.ui.schedule.DayScheduleFragment" relationship="INNER_CLASS">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.schedule.WeeklySchedulePresenter" target="me.yarond.mytime.Repository.WeeklyEventsListener" relationship="REALIZATION">
+      <point x="0.0" y="14.5" />
+      <point x="392.5507491112892" y="861.9273062181371" />
+      <point x="899.4935803441379" y="861.9273062181371" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.activityTypes.SidebarActivity" target="me.yarond.mytime.ui.activityTypes.DefaultActivity" relationship="GENERALIZATION">
+      <point x="-75.00008106563848" y="-2.769126509178932E-4" />
+      <point x="711.0" y="424.665" />
+      <point x="711.0" y="341.652" />
+      <point x="-74.00008106563848" y="2.0880163475567315E-4" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.fragmentTypes.SidebarFragmentActivity" target="me.yarond.mytime.ui.Sidebar" relationship="REALIZATION">
+      <point x="106.49975161021149" y="2.0880163475567315E-4" />
+      <point x="-50.50016472771347" y="2.0880163475567315E-4" />
+    </edge>
+    <edge source="me.yarond.mytime.Auth.Companion" target="me.yarond.mytime.Auth" relationship="INNER_CLASS">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.Repository.OverviewEventsListener" target="me.yarond.mytime.Repository" relationship="INNER_CLASS">
+      <point x="98.99983527228653" y="2.756794306151278E-4" />
+      <point x="780.0" y="659.475" />
+      <point x="780.0" y="691.475" />
+      <point x="746.772" y="691.475" />
+      <point x="-30.288103008217718" y="-14.500209169054187" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.schedule.WeeklyScheduleActivity" target="me.yarond.mytime.ui.schedule.DaySchedulePagerAdapter" relationship="TO_ONE">
+      <point x="-103.5" y="0.0" />
+      <point x="236.0" y="495.5562460462174" />
+      <point x="236.0" y="-227.54127228703499" />
+      <point x="581.0" y="-227.54127228703499" />
+      <point x="-0.8590823970038173" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.schedule.WeeklyScheduleActivity" target="me.yarond.mytime.ui.schedule.WeeklySchedulePresenter" relationship="TO_ONE">
+      <point x="-29.403499278499226" y="14.5" />
+      <point x="-15.0" y="-14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.Repository.Companion" target="me.yarond.mytime.Repository" relationship="INNER_CLASS">
+      <point x="63.49989699178218" y="-3.0621813709785783E-4" />
+      <point x="864.06" y="799.927" />
+      <point x="864.06" y="691.475" />
+      <point x="746.772" y="691.475" />
+      <point x="-30.288103008217718" y="-14.500209169054187" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.schedule.WeeklySchedulePresenter" target="me.yarond.mytime.ui.schedule.WeeklyScheduleActivity" relationship="TO_ONE">
+      <point x="0.0" y="-14.5" />
+      <point x="-14.403499278499226" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.overview.OverviewActivity" target="me.yarond.mytime.ui.activityTypes.SidebarActivity" relationship="GENERALIZATION">
+      <point x="2.509363296212541E-4" y="-14.499632865701642" />
+      <point x="1390.901" y="455.0" />
+      <point x="806.09" y="455.0" />
+      <point x="-8.106563848286896E-5" y="14.499723087349082" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.schedule.WeeklyScheduleActivity" target="me.yarond.mytime.ui.fragmentTypes.SidebarFragmentActivity" relationship="GENERALIZATION">
+      <point x="5.6843418860808015E-14" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.model.Event" target="me.yarond.mytime.model.Day" relationship="TO_ONE">
+      <point x="6.741573038482329E-5" y="-14.499727712965012" />
+      <point x="6.741573038482329E-5" y="14.500272287034932" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.settings.SettingsActivity" target="me.yarond.mytime.ui.activityTypes.SidebarActivity" relationship="GENERALIZATION">
+      <point x="4.039437726532924E-6" y="-14.499627135042601" />
+      <point x="1151.215" y="455.0" />
+      <point x="806.09" y="455.0" />
+      <point x="-8.106563848286896E-5" y="14.499723087349082" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.events.EditEventPresenter" target="me.yarond.mytime.model.Day" relationship="TO_ONE">
+      <point x="-1.6472771346798254E-4" y="-14.499507461020357" />
+      <point x="658.272" y="549.942" />
+      <point x="1012.494" y="549.942" />
+      <point x="1012.494" y="-594.041" />
+      <point x="410.5" y="-594.041" />
+      <point x="410.5" y="-520.0" />
+      <point x="119.479" y="-520.0" />
+      <point x="6.741573038482329E-5" y="14.500272287034932" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.login.LoginPresenter" target="me.yarond.mytime.ui.login.LoginActivity" relationship="TO_ONE">
+      <point x="15.0" y="-14.5" />
+      <point x="21.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.login.LoginActivity" target="me.yarond.mytime.ui.login.LoginPresenter" relationship="TO_ONE">
+      <point x="6.0" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.overview.PendingEventAdapter.ViewHolder" target="me.yarond.mytime.ui.overview.PendingEventAdapter" relationship="INNER_CLASS">
+      <point x="-12.89559925093613" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.activityTypes.SidebarActivity" target="me.yarond.mytime.ui.Sidebar" relationship="REALIZATION">
+      <point x="74.99991893436152" y="-2.769126509178932E-4" />
+      <point x="913.59" y="424.665" />
+      <point x="913.59" y="309.652" />
+      <point x="543.0" y="309.652" />
+      <point x="543.0" y="341.652" />
+      <point x="-50.50016472771347" y="2.0880163475567315E-4" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.events.EditEventActivity" target="me.yarond.mytime.ui.events.EditEventPresenter" relationship="TO_ONE">
+      <point x="-24.000164727713468" y="14.5" />
+      <point x="-30.000164727713468" y="-14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.Repository.WeeklyEventsListener" target="me.yarond.mytime.Repository" relationship="INNER_CLASS">
+      <point x="-95.49958034413783" y="2.756794306151278E-4" />
+      <point x="780.0" y="659.475" />
+      <point x="780.0" y="691.475" />
+      <point x="746.772" y="691.475" />
+      <point x="-30.288103008217718" y="-14.500209169054187" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.UtilPresenter.Companion" target="me.yarond.mytime.ui.UtilPresenter" relationship="INNER_CLASS">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.events.EditEventPresenter" target="me.yarond.mytime.ui.events.EditEventActivity" relationship="TO_ONE">
+      <point x="-15.000164727713468" y="-14.5" />
+      <point x="-9.000164727713468" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.overview.OverviewActivity" target="me.yarond.mytime.ui.overview.OverviewPresenter" relationship="TO_ONE">
+      <point x="15.0" y="14.5" />
+      <point x="25.0" y="-14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.overview.OverviewPresenter" target="me.yarond.mytime.ui.overview.OverviewActivity" relationship="TO_ONE">
+      <point x="10.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.model.Event" target="me.yarond.mytime.model.Notifications" relationship="TO_ONE">
+      <point x="6.741573038482329E-5" y="14.500272287034988" />
+      <point x="119.479" y="-447.041" />
+      <point x="476.5" y="-447.041" />
+      <point x="476.5" y="-499.0" />
+      <point x="299.271" y="-499.0" />
+      <point x="4.0074906388554155E-4" y="14.500272287034932" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.overview.OverviewPresenter" target="me.yarond.mytime.Repository.OverviewEventsListener" relationship="REALIZATION">
+      <point x="0.0" y="14.5" />
+      <point x="1380.9007490636704" y="846.9273062181371" />
+      <point x="655.2721647277135" y="846.9273062181371" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.Repository" target="me.yarond.mytime.Repository.WeeklyEventsListener" relationship="TO_ONE">
+      <point x="34.43347733592009" y="-14.5" />
+      <point x="-88.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.events.ViewEventActivity" target="me.yarond.mytime.model.Event" relationship="TO_ONE">
+      <point x="75.00641965586215" y="-14.499627135042601" />
+      <point x="962.5" y="-344.0" />
+      <point x="429.0" y="-344.0" />
+      <point x="429.0" y="-479.041" />
+      <point x="43.0000674157304" y="2.7228703498849427E-4" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.events.ViewEventPresenter" target="me.yarond.mytime.ui.events.ViewEventActivity" relationship="TO_ONE">
+      <point x="-16.5" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="me.yarond.mytime.ui.events.ViewEventActivity" target="me.yarond.mytime.ui.events.ViewEventPresenter" relationship="TO_ONE">
+      <point x="16.5" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.7729789590254706" showDependencies="true" x="734.0" y="-265.5" />
+  <SelectedNodes>
+    <node>me.yarond.mytime.model.HourPickerType</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>Project Files</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
