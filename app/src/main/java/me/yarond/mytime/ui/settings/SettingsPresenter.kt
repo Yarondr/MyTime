@@ -2,7 +2,7 @@ package me.yarond.mytime.ui.settings
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import me.yarond.mytime.Auth
+import me.yarond.mytime.persistency.Auth
 import me.yarond.mytime.ui.UtilPresenter
 
 class SettingsPresenter(private var view: SettingsActivity) {

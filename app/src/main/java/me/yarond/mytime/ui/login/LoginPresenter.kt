@@ -6,8 +6,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.GoogleAuthProvider
-import me.yarond.mytime.Auth
-import me.yarond.mytime.Repository
+import me.yarond.mytime.persistency.Auth
+import me.yarond.mytime.persistency.Repository
 
 class LoginPresenter(private var view: LoginActivity) {
 

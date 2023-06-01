@@ -1,4 +1,4 @@
-package me.yarond.mytime
+package me.yarond.mytime.persistency
 
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth

@@ -1,7 +1,8 @@
-package me.yarond.mytime
+package me.yarond.mytime.persistency
 
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
+import me.yarond.mytime.Utils
 import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
 import me.yarond.mytime.model.Notifications

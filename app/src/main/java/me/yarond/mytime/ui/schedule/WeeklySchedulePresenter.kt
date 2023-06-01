@@ -1,8 +1,8 @@
 package me.yarond.mytime.ui.schedule
 
-import me.yarond.mytime.Repository
 import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
+import me.yarond.mytime.persistency.Repository
 import me.yarond.mytime.ui.UtilPresenter
 
 class WeeklySchedulePresenter(private var view: WeeklyScheduleActivity) : Repository.WeeklyEventsListener {

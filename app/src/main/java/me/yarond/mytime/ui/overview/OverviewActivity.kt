@@ -9,7 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import me.yarond.mytime.EventNotificationService
+import me.yarond.mytime.services.EventNotificationService
 import me.yarond.mytime.R
 import me.yarond.mytime.model.Event
 import me.yarond.mytime.ui.activityTypes.SidebarActivity

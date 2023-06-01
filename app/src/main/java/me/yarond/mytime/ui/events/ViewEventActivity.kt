@@ -3,12 +3,9 @@ package me.yarond.mytime.ui.events
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import me.yarond.mytime.R
-import me.yarond.mytime.Repository
-import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
 import me.yarond.mytime.ui.activityTypes.DefaultActivity
 

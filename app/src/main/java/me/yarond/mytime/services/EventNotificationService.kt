@@ -1,4 +1,4 @@
-package me.yarond.mytime
+package me.yarond.mytime.services
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -7,6 +7,8 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
+import me.yarond.mytime.R
+import me.yarond.mytime.Utils
 import me.yarond.mytime.model.Event
 import me.yarond.mytime.model.Notifications
 import me.yarond.mytime.ui.events.ViewEventActivity

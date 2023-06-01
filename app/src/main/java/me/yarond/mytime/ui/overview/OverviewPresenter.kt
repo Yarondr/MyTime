@@ -1,8 +1,7 @@
 package me.yarond.mytime.ui.overview
 
-import android.util.Log
-import me.yarond.mytime.EventNotificationService
-import me.yarond.mytime.Repository
+import me.yarond.mytime.services.EventNotificationService
+import me.yarond.mytime.persistency.Repository
 import me.yarond.mytime.Utils
 import me.yarond.mytime.model.Event
 import me.yarond.mytime.ui.UtilPresenter
