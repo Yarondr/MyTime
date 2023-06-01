@@ -23,6 +23,12 @@ class OverviewActivity : SidebarActivity() {
     private lateinit var todayEventsAdapter: RecyclerView.Adapter<PendingEventAdapter.ViewHolder>
     private lateinit var todayEventsRecyclerView: RecyclerView
     private lateinit var todayDateTextView: TextView
+
+    private lateinit var tomorrowEventsLayoutManager: RecyclerView.LayoutManager
+    private lateinit var tomorrowEventsAdapter: RecyclerView.Adapter<PendingEventAdapter.ViewHolder>
+    private lateinit var tomorrowEventsRecyclerView: RecyclerView
+    private lateinit var tomorrowDateTextView: TextView
+
     private lateinit var addImageButton: ImageButton
     private lateinit var toggleSidebar: ActionBarDrawerToggle
     private lateinit var presenter: OverviewPresenter
@@ -44,12 +50,17 @@ class OverviewActivity : SidebarActivity() {
 
     private fun setViews() {
         todayEventsRecyclerView = findViewById(R.id.recyclerview_overview_today)
+        todayDateTextView = findViewById(R.id.textview_overview_today_date)
+        todayDateTextView.text = presenter.getTodayDate()
+
+        tomorrowEventsRecyclerView = findViewById(R.id.recyclerview_overview_tomorrow)
+        tomorrowDateTextView = findViewById(R.id.textview_overview_tomorrow_date)
+        tomorrowDateTextView.text = presenter.getTomorrowDate()
+
         addImageButton = findViewById(R.id.imagebutton_overview_add)
         drawerLayout = findViewById(R.id.drawer_layout_overview)
         navigationView = findViewById(R.id.navigationview_overview)
         sidebarButton = findViewById(R.id.imagebutton_overview_sidebar)
-        todayDateTextView = findViewById(R.id.textview_overview_today_date)
-        todayDateTextView.text = presenter.getTodayDate()
     }
 
     private fun setSideBar() {
@@ -101,11 +112,21 @@ class OverviewActivity : SidebarActivity() {
         todayEventsRecyclerView.layoutManager = todayEventsLayoutManager
         todayEventsAdapter = PendingEventAdapter(arrayListOf())
         todayEventsRecyclerView.adapter = todayEventsAdapter
+
+        tomorrowEventsLayoutManager = LinearLayoutManager(this)
+        tomorrowEventsRecyclerView.layoutManager = tomorrowEventsLayoutManager
+        tomorrowEventsAdapter = PendingEventAdapter(arrayListOf())
+        tomorrowEventsRecyclerView.adapter = tomorrowEventsAdapter
     }
 
     fun updateTodayEvents(events: ArrayList<Event>) {
         todayEventsAdapter = PendingEventAdapter(events)
         todayEventsRecyclerView.adapter = todayEventsAdapter
+    }
+
+    fun updateTomorrowEvents(events: ArrayList<Event>) {
+        tomorrowEventsAdapter = PendingEventAdapter(events)
+        tomorrowEventsRecyclerView.adapter = tomorrowEventsAdapter
     }
 
     private fun setListeners() {

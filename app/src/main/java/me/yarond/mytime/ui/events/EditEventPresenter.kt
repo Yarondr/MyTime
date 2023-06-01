@@ -3,6 +3,7 @@ package me.yarond.mytime.ui.events
 import me.yarond.mytime.Repository
 import me.yarond.mytime.model.Day
 import me.yarond.mytime.model.Event
+import me.yarond.mytime.model.HourPickerType
 import me.yarond.mytime.model.Notifications
 import java.time.Duration
 import java.time.LocalTime

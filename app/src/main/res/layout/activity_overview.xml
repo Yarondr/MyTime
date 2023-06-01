@@ -117,6 +117,7 @@
                     app:cardBackgroundColor="@color/background_secondary"
                     app:cardCornerRadius="10dp">
 
+
                     <LinearLayout
                         android:id="@+id/linearlayout_overrview_todaycard"
                         android:layout_width="match_parent"
@@ -135,8 +136,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0"
-                                app:srcCompat="@drawable/book_icon"
-                                android:tint="@color/secondary" />
+                                android:tint="@color/secondary"
+                                app:srcCompat="@drawable/book_icon" />
 
                             <android.widget.Space
                                 android:layout_width="10dp"
@@ -162,6 +163,113 @@
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerview_overview_today"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <android.widget.Space
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <android.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <android.widget.Space
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0" />
+
+                    <TextView
+                        android:id="@+id/textview_overview_tomorrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/quicksand_regular"
+                        android:text="@string/overview_tomorrow"
+                        android:textColor="@color/on_background"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:id="@+id/textview_overview_tomorrow_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="01/01/1999"
+                        android:textColor="@color/on_background_hidden"
+                        android:textSize="12sp" />
+
+                    <android.widget.Space
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0" />
+                </LinearLayout>
+
+                <android.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardview_overview_tomorrowcard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:cardBackgroundColor="@color/background_secondary"
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/linearlayout_overrview_tomorrowcard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/linearlayout_overview_tomorrowcardtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0"
+                                android:tint="@color/secondary"
+                                app:srcCompat="@drawable/book_icon" />
+
+                            <android.widget.Space
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:gravity="center_vertical"
+                                android:text="@string/pending_events"
+                                android:textColor="@color/secondary"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <android.widget.Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:layout_weight="1" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerview_overview_tomorrow"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
 

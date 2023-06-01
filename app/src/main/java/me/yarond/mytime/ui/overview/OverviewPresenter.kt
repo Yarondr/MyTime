@@ -1,5 +1,6 @@
 package me.yarond.mytime.ui.overview
 
+import android.util.Log
 import me.yarond.mytime.EventNotificationService
 import me.yarond.mytime.Repository
 import me.yarond.mytime.Utils
@@ -15,10 +16,15 @@ class OverviewPresenter(private var view: OverviewActivity) : Repository.Overvie
         val repository = Repository.getInstance()
         repository.setOverviewEventsListener(this)
         repository.readSpecificDayEvents(Utils.getCurrentDay())
+        repository.readSpecificDayEvents(Utils.getTomorrowDay())
     }
 
     fun getTodayDate(): String {
         return LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yy"))
+    }
+
+    fun getTomorrowDate(): String {
+        return LocalDate.now().plusDays(1).format(DateTimeFormatter.ofPattern("dd/MM/yy"))
     }
 
     fun sidebarButtonClicked() {
@@ -51,5 +57,7 @@ class OverviewPresenter(private var view: OverviewActivity) : Repository.Overvie
 
     override fun onTomorrowEventsUpdate(events: ArrayList<Event>) {
         EventNotificationService.getInstance().setTomorrowEvents(events)
+
+        view.updateTomorrowEvents(events)
     }
 }
