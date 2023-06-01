@@ -1,4 +1,4 @@
-package me.yarond.mytime.model
+package me.yarond.mytime.models
 
 enum class HourPickerType(val text: String) {
     START("Start time"),

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import me.yarond.mytime.R
-import me.yarond.mytime.model.Event
+import me.yarond.mytime.models.Event
 import me.yarond.mytime.ui.overview.PendingEventAdapter
 
 /**

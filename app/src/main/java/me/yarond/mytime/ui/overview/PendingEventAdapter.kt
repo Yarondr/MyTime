@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import me.yarond.mytime.R
-import me.yarond.mytime.model.Event
+import me.yarond.mytime.models.Event
 import me.yarond.mytime.ui.events.ViewEventActivity
 
 class PendingEventAdapter(private var events: ArrayList<Event>) : RecyclerView.Adapter<PendingEventAdapter.ViewHolder>() {

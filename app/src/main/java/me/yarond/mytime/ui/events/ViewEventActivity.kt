@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import me.yarond.mytime.R
-import me.yarond.mytime.model.Event
+import me.yarond.mytime.models.Event
 import me.yarond.mytime.ui.activityTypes.DefaultActivity
 
 class ViewEventActivity : DefaultActivity() {

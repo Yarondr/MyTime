@@ -1,6 +1,4 @@
-package me.yarond.mytime.model
-
-import me.yarond.mytime.R
+package me.yarond.mytime.models
 
 enum class Day {
     Sunday {

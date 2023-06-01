@@ -16,10 +16,10 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import me.yarond.mytime.R
-import me.yarond.mytime.model.Day
-import me.yarond.mytime.model.Event
-import me.yarond.mytime.model.HourPickerType
-import me.yarond.mytime.model.Notifications
+import me.yarond.mytime.models.Day
+import me.yarond.mytime.models.Event
+import me.yarond.mytime.models.HourPickerType
+import me.yarond.mytime.models.Notifications
 import me.yarond.mytime.ui.activityTypes.DefaultActivity
 
 class EditEventActivity : DefaultActivity() {

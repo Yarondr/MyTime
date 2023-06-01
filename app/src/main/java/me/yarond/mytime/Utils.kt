@@ -1,6 +1,6 @@
 package me.yarond.mytime
 
-import me.yarond.mytime.model.Day
+import me.yarond.mytime.models.Day
 import java.time.DayOfWeek
 import java.time.LocalDate
 

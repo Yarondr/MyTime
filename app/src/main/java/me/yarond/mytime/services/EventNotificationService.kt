@@ -9,8 +9,8 @@ import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import me.yarond.mytime.R
 import me.yarond.mytime.Utils
-import me.yarond.mytime.model.Event
-import me.yarond.mytime.model.Notifications
+import me.yarond.mytime.models.Event
+import me.yarond.mytime.models.Notifications
 import me.yarond.mytime.ui.events.ViewEventActivity
 import java.time.Duration
 import java.time.LocalTime

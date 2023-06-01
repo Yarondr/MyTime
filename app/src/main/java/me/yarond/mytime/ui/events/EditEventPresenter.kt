@@ -1,10 +1,10 @@
 package me.yarond.mytime.ui.events
 
 import me.yarond.mytime.persistency.Repository
-import me.yarond.mytime.model.Day
-import me.yarond.mytime.model.Event
-import me.yarond.mytime.model.HourPickerType
-import me.yarond.mytime.model.Notifications
+import me.yarond.mytime.models.Day
+import me.yarond.mytime.models.Event
+import me.yarond.mytime.models.HourPickerType
+import me.yarond.mytime.models.Notifications
 import java.time.Duration
 import java.time.LocalTime
 

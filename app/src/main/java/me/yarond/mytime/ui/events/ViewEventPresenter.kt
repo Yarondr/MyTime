@@ -1,7 +1,7 @@
 package me.yarond.mytime.ui.events
 
 import me.yarond.mytime.persistency.Repository
-import me.yarond.mytime.model.Event
+import me.yarond.mytime.models.Event
 
 class ViewEventPresenter(private var view: ViewEventActivity) {
 

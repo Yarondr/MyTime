@@ -9,8 +9,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import me.yarond.mytime.R
-import me.yarond.mytime.model.Day
-import me.yarond.mytime.model.Event
+import me.yarond.mytime.models.Day
+import me.yarond.mytime.models.Event
 import me.yarond.mytime.ui.events.EditEventActivity
 import me.yarond.mytime.ui.fragmentTypes.SidebarFragmentActivity
 import me.yarond.mytime.ui.overview.OverviewActivity
