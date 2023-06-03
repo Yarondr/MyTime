@@ -18,7 +18,6 @@ import me.yarond.mytime.ui.events.PendingEventAdapter
  * create an instance of this fragment.
  */
 class DayScheduleFragment(private var events: ArrayList<Event>, private var day: String) : Fragment() {
-    // TODO: Rename and change types of parameters
     private lateinit var eventsLayoutManager: RecyclerView.LayoutManager
     private lateinit var eventsAdapter: RecyclerView.Adapter<PendingEventAdapter.ViewHolder>
     private lateinit var eventsRecyclerView: RecyclerView
