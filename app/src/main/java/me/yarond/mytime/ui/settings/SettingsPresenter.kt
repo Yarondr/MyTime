@@ -17,19 +17,13 @@ class SettingsPresenter(private var view: SettingsActivity) {
         UtilPresenter.onDrawerLayoutSlide(view, slideOffset)
     }
 
-    fun themeSwitchToggle(isChecked: Boolean) {
-        if (isChecked) {
-            view.setDarkTheme()
-        } else {
+    fun themeButtonClicked() {
+        if (view.isDarkThemeEnabled()) {
+            view.setDarkThemeEnabled(false)
             view.setLightTheme()
-        }
-    }
-
-    fun setInitialThemeSwitchStatus() {
-        if (view.isDarkThemeOnStart()) {
-            view.setThemeSwitchStatus(true)
         } else {
-            view.setThemeSwitchStatus(false)
+            view.setDarkThemeEnabled(true)
+            view.setDarkTheme()
         }
     }
 

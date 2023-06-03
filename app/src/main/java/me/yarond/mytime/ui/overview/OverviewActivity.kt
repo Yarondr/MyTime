@@ -9,7 +9,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import me.yarond.mytime.services.EventNotificationService
 import me.yarond.mytime.R
 import me.yarond.mytime.models.Event
 import me.yarond.mytime.ui.activity_types.SidebarActivity
@@ -44,9 +43,6 @@ class OverviewActivity : SidebarActivity() {
         setSideBar()
         setAdapters()
         setListeners()
-
-        val serviceIntent = Intent(this, EventNotificationService.getInstance().javaClass)
-        startService(serviceIntent)
     }
 
     private fun setViews() {

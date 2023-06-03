@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import me.yarond.mytime.R
 import me.yarond.mytime.ui.overview.OverviewActivity
@@ -21,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
         presenter = LoginPresenter(this)
         setViews()
         setListeners()
+        loadThemeFromSharedPreferences()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -50,5 +52,23 @@ class LoginActivity : AppCompatActivity() {
 
     fun setStatus(message: String) {
         statusTextView.text = message
+    }
+
+    private fun loadThemeFromSharedPreferences() {
+        val sharedPreferences = getSharedPreferences("MyTime", MODE_PRIVATE)
+        val isDarkThemeEnabled = sharedPreferences.getBoolean("darkTheme", false)
+        if (isDarkThemeEnabled) {
+            setDarkTheme()
+        } else {
+            setLightTheme()
+        }
+    }
+
+    private fun setDarkTheme() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+    }
+
+    private fun setLightTheme() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 }

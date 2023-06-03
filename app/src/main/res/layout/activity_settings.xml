@@ -62,15 +62,18 @@
                 android:orientation="vertical"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/switch_settings_theme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="32dp"
-                    android:text="@string/settings_darktheme"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view_weeklyschedule_header_line" />
+                <Button
+                        android:id="@+id/button_settings_theme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:text="@string/switch_theme"
+                        android:fontFamily="@font/quicksand_semibold"
+                        app:backgroundTint="@color/on_background"
+                        app:iconTint="@null" />
 
                 <Button
                     android:id="@+id/button_settings_logout"
@@ -85,6 +88,7 @@
                     app:backgroundTint="@color/on_background"
                     app:iconTint="@null"
                     app:icon="@drawable/google_logo" />
+
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
