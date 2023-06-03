@@ -15,10 +15,10 @@ class EditEventPresenter(private var view: EditEventActivity) {
 
     fun setEvent(event: Event) {
         view.setEventName(event.name)
-        view.setEventDay(event.day!!.value)
+        view.setEventDay("Day: " + event.day!!.value)
         view.setEventStartTime("Start Time: " + event.startTime)
         view.setEventEndTime("End Time: " + event.endTime)
-        view.setEventNotification(event.notification!!.value)
+        view.setEventNotification("Notification: " + event.notification!!.value)
 
         if (event.location.isEmpty()) {
             view.setEventLocation("None")

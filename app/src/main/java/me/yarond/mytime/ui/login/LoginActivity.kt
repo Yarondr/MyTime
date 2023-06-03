@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun loadThemeFromSharedPreferences() {
         val sharedPreferences = getSharedPreferences("MyTime", MODE_PRIVATE)
-        val isDarkThemeEnabled = sharedPreferences.getBoolean("darkTheme", false)
+        val isDarkThemeEnabled = sharedPreferences.getBoolean("darkTheme", true)
         if (isDarkThemeEnabled) {
             setDarkTheme()
         } else {
