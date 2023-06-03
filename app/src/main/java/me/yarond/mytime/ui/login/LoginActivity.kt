@@ -48,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
     fun goToOverview() {
         val intent = Intent(this, OverviewActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     fun setStatus(message: String) {
