@@ -27,7 +27,7 @@ class EditEventPresenter(private var view: EditEventActivity) {
         }
 
         if (event.notes.isEmpty()) {
-            view.setEventNotes("None")
+            view.setEventNotes("")
         } else {
             view.setEventNotes(event.notes)
         }
