@@ -5,7 +5,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import me.yarond.mytime.Utils
 import me.yarond.mytime.models.Day
 import me.yarond.mytime.models.Event
-import me.yarond.mytime.models.Notifications
 
 class Repository {
 
@@ -24,7 +23,6 @@ class Repository {
         fun onThursdayEventsUpdate(events: ArrayList<Event>)
         fun onFridayEventsUpdate(events: ArrayList<Event>)
         fun onSaturdayEventsUpdate(events: ArrayList<Event>)
-
     }
 
     private lateinit var overviewEventsListener: OverviewEventsListener
@@ -105,36 +103,18 @@ class Repository {
         }
     }
 
-    fun write()
-    {
-        if (email == "") return
-
-        Day.values().forEachIndexed { index, day ->
-            val events = ArrayList<Event>()
-            events.add(Event("Event $index", day, "12:00", "13:00", Notifications.HalfHourBefore, "Home", "Hello", true))
-            events.add(Event("Event " + (index + 1), day, "13:00", "15:00", Notifications.ThreeHoursBefore, "School", "Hi", false))
-            events.forEach {
-                val id = it.generateId()
-                database.collection("events").document(day.value)
-                    .collection(email).document(id).set(it)
-            }
-        }
-    }
-
     fun saveEvent(event: Event) {
         if (email == "") return
 
         val id = event.generateId()
-        database.collection("events").document(event.day.value).
-            collection(email).document(id).set(event)
-            .addOnFailureListener { e ->
-                Log.w("FIREBASE", "Error writing document", e)
-            }
+        database.collection("events").document(event.day!!.value).
+                 collection(email).document(id).set(event)
     }
 
     fun deleteEvent(day: String, id: String) {
         if (email == "") return
+
         database.collection("events").document(day).
-            collection(email).document(id).delete()
+                 collection(email).document(id).delete()
     }
 }

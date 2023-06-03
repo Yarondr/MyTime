@@ -14,7 +14,6 @@ class LoginPresenter(private var view: LoginActivity) {
     private var googleSignInClient: GoogleSignInClient = GoogleSignIn.getClient(view, Auth.getGoogleSignInOptions())
 
     init {
-
         val firebaseUser = Auth.getFirebaseAuth().currentUser
         if (firebaseUser != null) {
             view.goToOverview()

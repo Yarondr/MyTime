@@ -10,12 +10,11 @@ class ViewEventPresenter(private var view: ViewEventActivity) {
     }
 
     fun setEvent(event: Event) {
-        view.setEventId(event.generateId())
         view.setEventName(event.name)
-        view.setEventDay(event.day.value)
+        view.setEventDay(event.day!!.value)
         view.setEventStartTime("Start Time: " + event.startTime)
         view.setEventEndTime("End Time: " + event.endTime)
-        view.setEventNotification(event.notification.value)
+        view.setEventNotification(event.notification!!.value)
 
         if (event.location.isEmpty()) {
             view.setEventLocation("None")
@@ -34,6 +33,10 @@ class ViewEventPresenter(private var view: ViewEventActivity) {
         } else {
             view.setEventToRecurring()
         }
+    }
+
+    fun deleteClicked() {
+        view.showDeleteDialog()
     }
 
     fun onDeleteConfirm(day: String, id: String) {

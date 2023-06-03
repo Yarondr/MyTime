@@ -5,11 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import me.yarond.mytime.R
 import me.yarond.mytime.models.Event
-import me.yarond.mytime.ui.activityTypes.DefaultActivity
 
-class ViewEventActivity : DefaultActivity() {
+class ViewEventActivity : AppCompatActivity() {
 
     private lateinit var eventNameTextView: TextView
     private lateinit var eventDayTextView: TextView
@@ -23,7 +23,6 @@ class ViewEventActivity : DefaultActivity() {
     private lateinit var editImageView: ImageView
     private lateinit var backImageView: ImageView
 
-    private lateinit var id: String
     private lateinit var presenter: ViewEventPresenter
 
     private lateinit var event: Event
@@ -54,18 +53,20 @@ class ViewEventActivity : DefaultActivity() {
 
     private fun setListeners() {
         backImageView.setOnClickListener { presenter.backClicked() }
-        deleteImageView.setOnClickListener {
-            AlertDialog.Builder(this)
-                .setTitle("Delete Event?")
-                .setMessage("Are you sure you want to delete this event?")
-                .setIcon(R.drawable.warning_icon)
-                .setPositiveButton(R.string.yes) { dialog, whichButton ->
-                    presenter.onDeleteConfirm(eventDayTextView.text.toString(), id)
-                }
-                .setNegativeButton(R.string.no) { dialog, whichButton -> }
-                .show()
-        }
+        deleteImageView.setOnClickListener { presenter.deleteClicked()}
         editImageView.setOnClickListener { presenter.editClicked() }
+    }
+
+    fun showDeleteDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Delete Event?")
+            .setMessage("Are you sure you want to delete this event?")
+            .setIcon(R.drawable.warning_icon)
+            .setPositiveButton(R.string.yes) { _, _ ->
+                presenter.onDeleteConfirm(eventDayTextView.text.toString(), event.generateId())
+            }
+            .setNegativeButton(R.string.no) { _, _ -> }
+            .show()
     }
 
     fun showEditEventActivity() {
@@ -109,10 +110,6 @@ class ViewEventActivity : DefaultActivity() {
 
     fun setEventToRecurring() {
         eventOneTimeImageView.setImageResource(R.drawable.deny_icon)
-    }
-
-    fun setEventId(id: String) {
-        this.id = id
     }
 
 }

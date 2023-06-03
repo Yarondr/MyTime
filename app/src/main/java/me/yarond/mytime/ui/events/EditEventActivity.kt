@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import me.yarond.mytime.R
@@ -20,9 +21,8 @@ import me.yarond.mytime.models.Day
 import me.yarond.mytime.models.Event
 import me.yarond.mytime.models.HourPickerType
 import me.yarond.mytime.models.Notifications
-import me.yarond.mytime.ui.activityTypes.DefaultActivity
 
-class EditEventActivity : DefaultActivity() {
+class EditEventActivity : AppCompatActivity() {
     private lateinit var nameEditText: EditText
     private lateinit var daySelectorTextView: TextView
     private lateinit var startTimeTextView: TextView

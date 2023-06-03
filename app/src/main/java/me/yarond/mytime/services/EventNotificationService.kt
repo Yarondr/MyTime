@@ -10,7 +10,6 @@ import androidx.core.app.NotificationCompat
 import me.yarond.mytime.R
 import me.yarond.mytime.Utils
 import me.yarond.mytime.models.Event
-import me.yarond.mytime.models.Notifications
 import me.yarond.mytime.ui.events.ViewEventActivity
 import java.time.Duration
 import java.time.LocalTime
@@ -76,18 +75,10 @@ class EventNotificationService : Service() {
             if (event.day == Utils.getCurrentDay()) {
                 val eventTime = LocalTime.parse(event.startTime)
 
-                val difference = when (event.notification) {
-                    Notifications.None -> arrayListOf(0, 0)
-                    Notifications.TenMinBefore -> arrayListOf(0, 10)
-                    Notifications.HalfHourBefore -> arrayListOf(0, 30)
-                    Notifications.OneHourBefore -> arrayListOf(1, 0)
-                    Notifications.ThreeHoursBefore -> arrayListOf(3, 0)
-                    Notifications.OneDayBefore -> arrayListOf(24, 0)
-                }
-
+                val timeArray = event.notification!!.timeArray
                 val differenceTime = Duration.between(currentTime, eventTime)
 
-                if (differenceTime.toHours().toInt() == difference[0] && differenceTime.toMinutes().toInt() == difference[1]) {
+                if (differenceTime.toHours().toInt() == timeArray[0] && differenceTime.toMinutes().toInt() == timeArray[1]) {
                     if (!event.notifed) {
                         eventsToNotify.add(event)
                         event.notifed = true
@@ -113,7 +104,7 @@ class EventNotificationService : Service() {
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.book_icon)
             .setContentTitle("Event is coming up!")
-            .setContentText("Event ${event.name} is starting ${event.notification.message}!")
+            .setContentText("Event ${event.name} is starting ${event.notification!!.message}!")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)

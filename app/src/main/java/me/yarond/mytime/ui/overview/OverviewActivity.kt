@@ -12,8 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import me.yarond.mytime.services.EventNotificationService
 import me.yarond.mytime.R
 import me.yarond.mytime.models.Event
-import me.yarond.mytime.ui.activityTypes.SidebarActivity
+import me.yarond.mytime.ui.activity_types.SidebarActivity
 import me.yarond.mytime.ui.events.EditEventActivity
+import me.yarond.mytime.ui.events.PendingEventAdapter
 import me.yarond.mytime.ui.schedule.WeeklyScheduleActivity
 import me.yarond.mytime.ui.settings.SettingsActivity
 

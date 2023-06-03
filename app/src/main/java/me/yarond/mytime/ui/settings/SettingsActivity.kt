@@ -5,16 +5,13 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
-import me.yarond.mytime.ui.activityTypes.SidebarActivity
+import me.yarond.mytime.ui.activity_types.SidebarActivity
 import me.yarond.mytime.R
-import me.yarond.mytime.ui.UtilPresenter
 import me.yarond.mytime.ui.login.LoginActivity
 import me.yarond.mytime.ui.overview.OverviewActivity
 import me.yarond.mytime.ui.schedule.WeeklyScheduleActivity
@@ -115,7 +112,7 @@ class SettingsActivity : SidebarActivity() {
     }
 
     fun goToLogin() {
-        var intent = Intent(this, LoginActivity::class.java)
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }

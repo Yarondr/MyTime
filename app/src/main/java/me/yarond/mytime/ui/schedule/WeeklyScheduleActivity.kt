@@ -12,7 +12,7 @@ import me.yarond.mytime.R
 import me.yarond.mytime.models.Day
 import me.yarond.mytime.models.Event
 import me.yarond.mytime.ui.events.EditEventActivity
-import me.yarond.mytime.ui.fragmentTypes.SidebarFragmentActivity
+import me.yarond.mytime.ui.fragment_types.SidebarFragmentActivity
 import me.yarond.mytime.ui.overview.OverviewActivity
 import me.yarond.mytime.ui.settings.SettingsActivity
 
@@ -22,8 +22,8 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
     private lateinit var tabLayout: TabLayout
     private lateinit var toggleSidebar: ActionBarDrawerToggle
     private lateinit var editEventButton: ImageButton
-    private lateinit var presenter: WeeklySchedulePresenter
     private lateinit var adapter: DaySchedulePagerAdapter
+    private lateinit var presenter: WeeklySchedulePresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
