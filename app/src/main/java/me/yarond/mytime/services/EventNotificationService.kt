@@ -79,9 +79,9 @@ class EventNotificationService : Service() {
                 val differenceTime = Duration.between(currentTime, eventTime)
 
                 if (differenceTime.toHours().toInt() == timeArray[0] && differenceTime.toMinutes().toInt() == timeArray[1]) {
-                    if (!event.notifed) {
+                    if (!event.notified) {
                         eventsToNotify.add(event)
-                        event.notifed = true
+                        event.notified = true
                     }
                 }
             }

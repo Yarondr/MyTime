@@ -64,8 +64,11 @@ class Repository {
                 }
 
                 val events = ArrayList(snapshots!!.documents.map {
-                    it.toObject(Event::class.java)!!
+                    val event = it.toObject(Event::class.java)!!
+                    event.id = it.id
+                    event
                 })
+                events.sortBy { event -> event.startTime }
 
                 when (day) {
                     Utils.getCurrentDay() -> overviewEventsListener.onTodayEventsUpdate(events)
@@ -87,8 +90,11 @@ class Repository {
                     }
 
                     val events = ArrayList(snapshots!!.documents.map {
-                        it.toObject(Event::class.java)!!
+                        val event = it.toObject(Event::class.java)!!
+                        event.id = it.id
+                        event
                     })
+                    events.sortBy { event -> event.startTime }
 
                     when (day) {
                         Day.Sunday -> weeklyEventsListener.onSundayEventsUpdate(events)
