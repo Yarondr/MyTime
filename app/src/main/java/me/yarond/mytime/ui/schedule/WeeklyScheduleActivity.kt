@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.Switch
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager2.widget.ViewPager2
@@ -21,6 +22,7 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
     private lateinit var toggleSidebar: ActionBarDrawerToggle
+    private lateinit var importantSwitch: Switch
     private lateinit var editEventButton: ImageButton
     private lateinit var adapter: DaySchedulePagerAdapter
     private lateinit var presenter: WeeklySchedulePresenter
@@ -31,7 +33,7 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
         presenter = WeeklySchedulePresenter(this)
         setViews()
         setSideBar()
-        setButtons()
+        setListeners()
         setAdapters()
         presenter.init()
     }
@@ -43,10 +45,12 @@ class WeeklyScheduleActivity : SidebarFragmentActivity() {
         navigationView = findViewById(R.id.navigationview_weeklyschedule)
         sidebarButton = findViewById(R.id.imagebutton_weeklyschedule_sidebar)
         editEventButton = findViewById(R.id.imagebutton_weeklyschedule_add)
+        importantSwitch = findViewById(R.id.switch_weeklyschedule_important)
     }
 
-    private fun setButtons() {
+    private fun setListeners() {
         editEventButton.setOnClickListener{ presenter.createNewEvent() }
+        importantSwitch.setOnCheckedChangeListener { _, isChecked -> presenter.updateImportant(isChecked) }
     }
 
     fun updateEvents(dayIndex: Int, events: ArrayList<Event>) {

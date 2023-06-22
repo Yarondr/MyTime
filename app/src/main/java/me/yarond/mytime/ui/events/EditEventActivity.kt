@@ -31,6 +31,7 @@ class EditEventActivity : AppCompatActivity() {
     private lateinit var locationEditText: EditText
     private lateinit var notesEditText: EditText
     private lateinit var onceCheckBox: CheckBox
+    private lateinit var importantCheckBox: CheckBox
     private lateinit var statusTextView: TextView
 
     private lateinit var backImageView: ImageView
@@ -66,6 +67,7 @@ class EditEventActivity : AppCompatActivity() {
         locationEditText = findViewById(R.id.edittext_editevent_location)
         notesEditText = findViewById(R.id.edittext_editevent_notes)
         onceCheckBox = findViewById(R.id.checkbox_editevent_once)
+        importantCheckBox = findViewById(R.id.checkbox_editevent_important)
         statusTextView = findViewById(R.id.textview_editevent_status)
 
         backImageView = findViewById(R.id.imageview_editevent_back)
@@ -83,6 +85,7 @@ class EditEventActivity : AppCompatActivity() {
         locationEditText.doOnTextChanged { text, _, _, _ ->  presenter.updateLocation(text.toString()) }
         notesEditText.doOnTextChanged { text, _, _, _ ->  presenter.updateNotes(text.toString()) }
         onceCheckBox.setOnCheckedChangeListener { _, isChecked -> presenter.updateOnce(isChecked) }
+        importantCheckBox.setOnCheckedChangeListener { _, isChecked -> presenter.updateImportant(isChecked) }
     }
 
     private fun createDialogs() {
@@ -175,6 +178,11 @@ class EditEventActivity : AppCompatActivity() {
             presenter.updateTime(hourPickerType, time)
             textView.text = String.format("%s: %s", hourPickerType.text, time)
         }, 12, 0, true).show()
+    }
+
+    fun setEventImportant(important: Boolean, text: String) {
+        importantCheckBox.text = text
+        importantCheckBox.isChecked = important
     }
 
     fun showDayDialog() {

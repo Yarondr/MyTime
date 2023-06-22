@@ -178,6 +178,18 @@
         app:layout_constraintTop_toBottomOf="@+id/textview_viewevent_notes" />
 
     <TextView
+            android:id="@+id/textview_vieweven_important"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="One Time Event"
+            android:textColor="@color/on_background"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/textview_viewevent_notes"
+            app:layout_constraintTop_toBottomOf="@+id/textview_viewevent_onetime"
+            android:layout_marginTop="32dp" />
+
+    <TextView
         android:id="@+id/textview_viewevent_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -228,5 +240,14 @@
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+            android:layout_width="24dp"
+            android:layout_height="27dp"
+            app:srcCompat="@drawable/warning_icon"
+            android:id="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/textview_vieweven_important"
+            app:layout_constraintBottom_toBottomOf="@+id/textview_vieweven_important"
+            app:layout_constraintStart_toStartOf="@+id/imageview_viewevent_onetime" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

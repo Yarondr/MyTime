@@ -19,6 +19,7 @@ class ViewEventActivity : AppCompatActivity() {
     private lateinit var eventLocationTextView: TextView
     private lateinit var eventNotesTextView: TextView
     private lateinit var eventOneTimeImageView: ImageView
+    private lateinit var eventImportantTextView: TextView
     private lateinit var deleteImageView: ImageView
     private lateinit var editImageView: ImageView
     private lateinit var backImageView: ImageView
@@ -46,6 +47,7 @@ class ViewEventActivity : AppCompatActivity() {
         eventLocationTextView = findViewById(R.id.textview_viewevent_location)
         eventNotesTextView = findViewById(R.id.textview_viewevent_notes)
         eventOneTimeImageView = findViewById(R.id.imageview_viewevent_onetime)
+        eventImportantTextView = findViewById(R.id.textview_vieweven_important)
         backImageView = findViewById(R.id.imageview_viewevent_back)
         deleteImageView = findViewById(R.id.imagebutton_viewevent_delete)
         editImageView = findViewById(R.id.imagebutton_viewevent_edit)
@@ -110,6 +112,10 @@ class ViewEventActivity : AppCompatActivity() {
 
     fun setEventToRecurring() {
         eventOneTimeImageView.setImageResource(R.drawable.deny_icon)
+    }
+
+    fun setEventImportantText(text: String) {
+        eventImportantTextView.text = text
     }
 
 }

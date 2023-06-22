@@ -7,6 +7,11 @@ import me.yarond.mytime.ui.UtilPresenter
 
 class WeeklySchedulePresenter(private var view: WeeklyScheduleActivity) : Repository.WeeklyEventsListener {
 
+    private var events: ArrayList<ArrayList<Event>> = arrayListOf(
+        ArrayList(), ArrayList(), ArrayList(), ArrayList(), ArrayList(), ArrayList(), ArrayList()
+    )
+    private var hideNonImportant = false
+
     fun init() {
         val repository = Repository.getInstance()
         repository.setWeeklyEventsListener(this)
@@ -25,36 +30,57 @@ class WeeklySchedulePresenter(private var view: WeeklyScheduleActivity) : Reposi
         UtilPresenter.onDrawerLayoutSlide(view, slideOffset)
     }
 
+    fun updateImportant(important: Boolean) {
+        hideNonImportant = important
+        Day.values().forEach { day ->
+            updateEventsOnScreen(day.ordinal, events[day.ordinal])
+        }
+    }
+
+    fun updateEventsOnScreen(dayIndex: Int, events: ArrayList<Event>) {
+        view.updateEvents(dayIndex, events.filter { event: Event ->
+            if (hideNonImportant) event.important
+            else true
+        } as ArrayList<Event>)
+    }
+
     fun createNewEvent() {
         view.startActivity(view.getEditEventActivityIntent())
     }
 
     override fun onSundayEventsUpdate(events: ArrayList<Event>) {
-        view.updateEvents(Day.Sunday.ordinal, events)
+        this.events[0] = events
+        updateEventsOnScreen(Day.Sunday.ordinal, events)
     }
 
     override fun onMondayEventsUpdate(events: ArrayList<Event>) {
-        view.updateEvents(Day.Monday.ordinal, events)
+        this.events[1] = events
+        updateEventsOnScreen(Day.Monday.ordinal, events)
     }
 
     override fun onTuesdayEventsUpdate(events: ArrayList<Event>) {
-        view.updateEvents(Day.Tuesday.ordinal, events)
+        this.events[2] = events
+        updateEventsOnScreen(Day.Tuesday.ordinal, events)
     }
 
     override fun onWednesdayEventsUpdate(events: ArrayList<Event>) {
-        view.updateEvents(Day.Wednesday.ordinal, events)
+        this.events[3] = events
+        updateEventsOnScreen(Day.Wednesday.ordinal, events)
     }
 
     override fun onThursdayEventsUpdate(events: ArrayList<Event>) {
-        view.updateEvents(Day.Thursday.ordinal, events)
+        this.events[4] = events
+        updateEventsOnScreen(Day.Thursday.ordinal, events)
     }
 
     override fun onFridayEventsUpdate(events: ArrayList<Event>) {
-        view.updateEvents(Day.Friday.ordinal, events)
+        this.events[5] = events
+        updateEventsOnScreen(Day.Friday.ordinal, events)
     }
 
     override fun onSaturdayEventsUpdate(events: ArrayList<Event>) {
-        view.updateEvents(Day.Saturday.ordinal, events)
+        this.events[6] = events
+        updateEventsOnScreen(Day.Saturday.ordinal, events)
     }
 
 }

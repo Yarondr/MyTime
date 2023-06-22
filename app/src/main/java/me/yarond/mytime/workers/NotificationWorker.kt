@@ -62,7 +62,8 @@ class NotificationWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, p
             Notifications.values()[inputData.getInt("notificationIndex", 0)],
             inputData.getString("location")!!,
             inputData.getString("notes")!!,
-            inputData.getBoolean("once", false)
+            inputData.getBoolean("once", false),
+            inputData.getBoolean("important", false)
         )
         event.id = inputData.getString("id")!!
         return event

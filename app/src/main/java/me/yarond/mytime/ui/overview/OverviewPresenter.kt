@@ -105,6 +105,7 @@ class OverviewPresenter(private var view: OverviewActivity) : Repository.Overvie
             .putString("location", event.location)
             .putString("notes", event.notes)
             .putBoolean("once", event.once)
+            .putBoolean("important", event.important)
 
         OneTimeWorkRequestBuilder<NotificationWorker>()
             .addTag(event.generateId())

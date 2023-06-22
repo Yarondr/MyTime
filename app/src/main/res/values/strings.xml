@@ -78,4 +78,6 @@
     <string name="overview_tomorrow">Tomorrow</string>
     <string name="switch_theme">Switch Theme</string>
     <string name="loading">Loading...</string>
+    <string name="important_event">Important Event</string>
+    <string name="hide_non_important">Hide Non Important</string>
 </resources>

@@ -38,6 +38,12 @@ class EditEventPresenter(private var view: EditEventActivity) {
             view.setEventToRecurring()
         }
 
+        if (event.important) {
+            view.setEventImportant(true, "Important Event!")
+        } else {
+            view.setEventImportant(false, "Not Important Event")
+        }
+
         this.event = event
     }
     fun selectDay() {
@@ -73,6 +79,10 @@ class EditEventPresenter(private var view: EditEventActivity) {
 
     fun updateOnce(once: Boolean) {
         this.event.once = once
+    }
+
+    fun updateImportant(important: Boolean) {
+        this.event.important = important
     }
 
     fun backClicked() {

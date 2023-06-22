@@ -33,6 +33,12 @@ class ViewEventPresenter(private var view: ViewEventActivity) {
         } else {
             view.setEventToRecurring()
         }
+
+        if (event.important) {
+            view.setEventImportantText("Important Event!")
+        } else {
+            view.setEventImportantText("Not Important Event")
+        }
     }
 
     fun deleteClicked() {

@@ -1,12 +1,12 @@
 package me.yarond.mytime.models
 
 class Event(var name: String, var day: Day?, var startTime: String, var endTime: String,
-            var notification: Notifications?, var location: String, var notes: String, var once: Boolean): java.io.Serializable {
+            var notification: Notifications?, var location: String, var notes: String, var once: Boolean, var important: Boolean): java.io.Serializable {
 
     var notified = false
     var id = ""
 
-    constructor() : this("", null, "", "", null, "", "", false)
+    constructor() : this("", null, "", "", null, "", "", false, false)
 
     fun generateId(): String {
         if (id != "") return id
